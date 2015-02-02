@@ -1,0 +1,40 @@
+<apex:page standardController="Screening__c" extensions="ScreeningController">
+	<apex:sectionHeader title="Screening" subtitle="Create a Screening for {!participant}"/>
+
+	  <apex:form >
+	    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+	    
+	    <apex:pageBlock >
+		  <apex:outputText value="{!$Label.Screening_Prompt}" style="font-weight:bold"/><br/><br/>
+		  	
+	      <apex:pageBlockButtons >
+	        <apex:commandButton action="{!save}" value="Save"/>
+	      </apex:pageBlockButtons>
+	
+	      <apex:pageBlockSection showHeader="true" columns="4" title="Screening Info">
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Info_Fields}" var="f"> 
+        		<apex:inputField value="{!Screening__c[f]}" /><br/>
+    		</apex:repeat>
+	      </apex:pageBlockSection>
+	       
+	      <apex:pageBlockSection showHeader="true" columns="4" title="Phone Screening">
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Phone_Screening_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" /><br/>
+    		</apex:repeat>
+    	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="1" title="DV History">
+    	    <apex:outputText value="{!$Label.Screening_DV_History_Prompt}" style="font-weight:bold"/><br/><br/>
+    	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="false" columns="4">  
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_DV_History}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" /><br/>
+    		</apex:repeat>
+    	  </apex:pageBlockSection>
+	
+	    </apex:pageBlock>
+	    
+	  </apex:form>
+	  
+</apex:page>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Apsona for Salesforce</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>apsona</namespacePrefix>
+    <types>
+        <members>ApsonaUtils</members>
+        <members>ApsonaUtilsTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ApsonaForSalesforce</members>
+        <members>apsonaEchoCSV</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>apsona_item__c.Checkbox_00__c</members>
+        <members>apsona_item__c.Checkbox_01__c</members>
+        <members>apsona_item__c.Checkbox_02__c</members>
+        <members>apsona_item__c.Checkbox_03__c</members>
+        <members>apsona_item__c.Checkbox_04__c</members>
+        <members>apsona_item__c.Content1__c</members>
+        <members>apsona_item__c.Content2__c</members>
+        <members>apsona_item__c.Content3__c</members>
+        <members>apsona_item__c.Content4__c</members>
+        <members>apsona_item__c.Content5__c</members>
+        <members>apsona_item__c.Content__c</members>
+        <members>apsona_item__c.Description__c</members>
+        <members>apsona_item__c.Entity_name__c</members>
+        <members>apsona_item__c.Item_type__c</members>
+        <members>apsona_item__c.String_00__c</members>
+        <members>apsona_item__c.String_01__c</members>
+        <members>apsona_item__c.String_02__c</members>
+        <members>apsona_item__c.String_03__c</members>
+        <members>apsona_item__c.String_04__c</members>
+        <members>apsona_item__c.String_05__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>apsona_item__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Apsona</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>apsona_item__c-Apsona item Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>apsona_item__c.All</members>
+        <name>ListView</name>
+    </types>
+    <version>27.0</version>
+</Package>

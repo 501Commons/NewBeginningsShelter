@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Junction object that connect multiple contracts to multiple service participations.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Contract__c</referenceTo>
+        <relationshipLabel>Service Participations</relationshipLabel>
+        <relationshipName>ContractParticipations</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Service_Participation__c</fullName>
+        <externalId>false</externalId>
+        <label>Service Participation</label>
+        <referenceTo>ServiceParticipation__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>ContractParticipations</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Total_Number_of_Milestones__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.Total_Number_of_Templ_Milestones__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total Number of Milestones under this Contract.</inlineHelpText>
+        <label>Total Number of Milestones</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Contract Participation</label>
+    <nameField>
+        <displayFormat>CP - {00000}</displayFormat>
+        <label>ContractParticipation Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>ContractParticipations</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Contract__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Service_Participation__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

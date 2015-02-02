@@ -1,0 +1,41 @@
+<apex:page standardController="Milestone__c" extensions="EditMilestonesControllerExtension" recordSetVar="milestones" id="thePage"> 
+    <apex:form id="theForm"> 
+        <apex:pageBlock id="thePageBlock" title="Edit Milestones">
+        <apex:outputLink value="/{!serviceParticipation}">Service Participation {!serviceParticipationName}</apex:outputLink>                
+            <apex:pageBlockTable value="{!milestones}" var="milestone" id="thePageBlockTable">               
+                <apex:column >
+                    <apex:outputField value="{!milestone.Name}"/> 
+                    <apex:facet name="header">Milestone Number</apex:facet>
+                </apex:column>
+                <apex:column >
+                    <apex:outputField value="{!milestone.Milestone_NameFormula__c}"/> 
+                    <apex:facet name="header">Milestone Name</apex:facet>
+                </apex:column>   
+                <apex:column >
+                    <apex:outputField value="{!milestone.DescriptionFormula__c}"/> 
+                    <apex:facet name="header">Description</apex:facet>
+                </apex:column>               
+                <apex:column >
+                    <apex:outputField value="{!milestone.Status__c}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="prevBtn, nextBtn"/>
+                    </apex:outputField> 
+                    <apex:facet name="header">Status</apex:facet>
+                </apex:column> 
+                <apex:column >
+                    <apex:outputField value="{!milestone.Outcome__c}"/> 
+                    <apex:facet name="header">Outcome</apex:facet>
+                </apex:column> 
+                <apex:column >
+                    <apex:outputField value="{!milestone.Contract_Name__c}"/> 
+                    <apex:facet name="header">Contract Name</apex:facet>
+                </apex:column>                                         
+            </apex:pageBlockTable> 
+            <apex:pageBlockButtons >                
+                <apex:commandButton value="Save" action="{!save}" id="saveButton" />
+                <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" />                
+                <apex:commandButton value="Previous" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page" id="prevBtn"/>
+                <apex:commandButton value="Next" action="{!next}" disabled="{!!hasNext}" title="Next Page" id="nextBtn"/>                
+            </apex:pageBlockButtons> 
+        </apex:pageBlock> 
+    </apex:form>
+</apex:page>

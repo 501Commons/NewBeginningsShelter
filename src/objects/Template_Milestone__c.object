@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>These are used exclusively to create the real milestones attached to each Outcome and Service Participation.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>IsParentContractLocked__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Outcome__r.Contract__r.IsLocked__c</formula>
+        <label>IsParentContractLocked</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Milestone_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Milestone Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Performance_commitment__c</fullName>
+        <description>Performance commitment / goal is a target # of participants that we promise to our funders that we as an organization will achieve in order to maintain contract compliance.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Performance commitment / goal is a target # of participants that we promise to our funders that we as an organization will achieve in order to maintain contract compliance.</inlineHelpText>
+        <label>Performance commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Template_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Template Outcome</label>
+        <referenceTo>Template_Outcome__c</referenceTo>
+        <relationshipLabel>Template Milestones</relationshipLabel>
+        <relationshipName>Template_Milestones</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Template Milestone</label>
+    <nameField>
+        <displayFormat>TM-{0000}</displayFormat>
+        <label>Template Milestone Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Template Milestones</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>New_Template_Milestone_Cust</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Template Milestone</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!requireScript(&quot;/soap/ajax/29.0/connection.js&quot;)}
+if ({!Contract__c.IsLocked__c} == 1) {
+alert(&quot;The parent contract is locked so you cannot add a new Template Milestone.&quot;);
+} else {
+window.top.location.href = &quot;/a0Z/e?CF00Ni000000CTKH9={!Template_Outcome__c.Name}&amp;retURL={!Template_Milestone__c.Id}&quot;;
+}</url>
+    </webLinks>
+</CustomObject>

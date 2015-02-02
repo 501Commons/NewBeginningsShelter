@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Parent Contract for this Outcome.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent Contract for this Outcome.</inlineHelpText>
+        <label>Contract</label>
+        <referenceTo>Contract__c</referenceTo>
+        <relationshipLabel>Outcomes</relationshipLabel>
+        <relationshipName>Outcomes</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Milestones_Met__c</fullName>
+        <description>Number of unique milestones that were met for this outcome.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of unique milestones that were met for this outcome.</inlineHelpText>
+        <label>Number of Milestones Met</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outcome_Date_Met__c</fullName>
+        <description>Date this outcome was met.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date this outcome was met.</inlineHelpText>
+        <label>Outcome Date Met</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Outcome_DetailFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Outcome__r.Template_Outcome_Detail__c</formula>
+        <label>Outcome Detail</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outcome_NameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Outcome__r.Template_Outcome_Name__c</formula>
+        <label>Outcome Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Case_Record__c</fullName>
+        <description>Parent case record for the Outcome.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent case record for the Outcome.</inlineHelpText>
+        <label>Parent Case Record</label>
+        <referenceTo>Case_Record__c</referenceTo>
+        <relationshipLabel>Outcomes</relationshipLabel>
+        <relationshipName>Outcomes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Performance_Commitment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Outcome__r.Performance_commitment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Performance Commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Met</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partially Met</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Met</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Template_Outcome__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Parent Template Outcome</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent Template Outcome</inlineHelpText>
+        <label>Template Outcome</label>
+        <referenceTo>Template_Outcome__c</referenceTo>
+        <relationshipLabel>Outcomes</relationshipLabel>
+        <relationshipName>Outcomes</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Number_of_Milestones__c</fullName>
+        <description>This is the total number of unique milestones (template milestones) for this outcome.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the total number of unique milestones (template milestones) for this outcome.</inlineHelpText>
+        <label>Total Number of Milestones</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Outcome</label>
+    <nameField>
+        <displayFormat>OUT-{00000}</displayFormat>
+        <label>Outcome Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Outcomes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

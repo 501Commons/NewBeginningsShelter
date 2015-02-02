@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Checklists and Forms used at Arrival or Exit.</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Agreement_for_Services_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Agreement for Services advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Agreement for Services advocate.</inlineHelpText>
+        <label>Agreement for Services Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Agreement for Services Advocate)</relationshipLabel>
+        <relationshipName>Checklists8</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Agreement_for_Services_Date__c</fullName>
+        <description>Agreement for Services completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Agreement for Services completion date.</inlineHelpText>
+        <label>Agreement for Services Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Arrival_Status_Flag__c</fullName>
+        <description>Returns 0 if green, 1 if yellow and 2 if green. Used to display status flag on case record. DO NOT USE ON LAYOUT.</description>
+        <externalId>false</externalId>
+        <formula>IF (
+AND(ISBLANK(Tour_Completion_Date__c), ISBLANK( Tour_Given_Advocate__c), ISBLANK(Confidentiality_Rules_Completion_Date__c), ISBLANK(Confidentiality_Rules_Advocate__c),
+ISBLANK(Welcome_Packet_Completion_Date__c), ISBLANK(Welcome_Packet_Advocate__c),
+ISBLANK(Important_Program_Expectations_Date__c), ISBLANK(Important_Program_Expectations_Advocate__c),
+ISBLANK(IOCs_Completion_Date__c), ISBLANK( IOCs_Advocate__c ),
+ISBLANK(Outside_Provider_Info_Policy_Date__c), ISBLANK(Outside_Provider_Info_Policy_Advocate__c),
+ISBLANK(Particular_Concerns_or_Goals_Date__c),ISBLANK(Particular_Concerns_or_Goals_Advocate__c),
+ISBLANK(Give_schedule_planner_date__c), ISBLANK(Give_Schedule_Planner_Advocate__c)),
+
+0,
+
+IF (
+OR(ISBLANK(Tour_Completion_Date__c), ISBLANK( Tour_Given_Advocate__c), ISBLANK(Confidentiality_Rules_Completion_Date__c), ISBLANK(Confidentiality_Rules_Advocate__c),
+ISBLANK(Welcome_Packet_Completion_Date__c), ISBLANK(Welcome_Packet_Advocate__c),
+ISBLANK(Important_Program_Expectations_Date__c), ISBLANK(Important_Program_Expectations_Advocate__c),
+ISBLANK(IOCs_Completion_Date__c), ISBLANK( IOCs_Advocate__c ),
+ISBLANK(Outside_Provider_Info_Policy_Date__c), ISBLANK(Outside_Provider_Info_Policy_Advocate__c),
+ISBLANK(Particular_Concerns_or_Goals_Date__c),ISBLANK(Particular_Concerns_or_Goals_Advocate__c),
+ISBLANK(Give_schedule_planner_date__c), ISBLANK(Give_Schedule_Planner_Advocate__c)),
+
+1,
+
+2))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Arrival Status Flag</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Arrival_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (
+AND(ISBLANK(Tour_Completion_Date__c), ISBLANK( Tour_Given_Advocate__c), ISBLANK(Confidentiality_Rules_Completion_Date__c), ISBLANK(Confidentiality_Rules_Advocate__c),
+ISBLANK(Welcome_Packet_Completion_Date__c), ISBLANK(Welcome_Packet_Advocate__c),
+ISBLANK(Important_Program_Expectations_Date__c), ISBLANK(Important_Program_Expectations_Advocate__c),
+ISBLANK(IOCs_Completion_Date__c), ISBLANK( IOCs_Advocate__c ),
+ISBLANK(Outside_Provider_Info_Policy_Date__c), ISBLANK(Outside_Provider_Info_Policy_Advocate__c),
+ISBLANK(Particular_Concerns_or_Goals_Date__c),ISBLANK(Particular_Concerns_or_Goals_Advocate__c),
+ISBLANK(Give_schedule_planner_date__c),  ISBLANK(Give_Schedule_Planner_Advocate__c)), 
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsY&quot;,&quot;Red&quot;),
+
+IF (
+OR(ISBLANK(Tour_Completion_Date__c), ISBLANK( Tour_Given_Advocate__c), ISBLANK(Confidentiality_Rules_Completion_Date__c), ISBLANK(Confidentiality_Rules_Advocate__c),
+ISBLANK(Welcome_Packet_Completion_Date__c), ISBLANK(Welcome_Packet_Advocate__c),
+ISBLANK(Important_Program_Expectations_Date__c), ISBLANK(Important_Program_Expectations_Advocate__c),
+ISBLANK(IOCs_Completion_Date__c), ISBLANK( IOCs_Advocate__c ),
+ISBLANK(Outside_Provider_Info_Policy_Date__c), ISBLANK(Outside_Provider_Info_Policy_Advocate__c),
+ISBLANK(Particular_Concerns_or_Goals_Date__c),ISBLANK(Particular_Concerns_or_Goals_Advocate__c),
+ISBLANK(Give_schedule_planner_date__c),  ISBLANK(Give_Schedule_Planner_Advocate__c)), 
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;),
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;)))</formula>
+        <label>Arrival Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Record__c</fullName>
+        <description>The parent case record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The parent case record.</inlineHelpText>
+        <label>Case Record</label>
+        <referenceTo>Case_Record__c</referenceTo>
+        <relationshipLabel>Checklists</relationshipLabel>
+        <relationshipName>Checklists</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Collect_Pers_Docs_from_Staff_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Collect Pers Docs from Staff Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Collect Pers Docs from Staff Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMu7o</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Collect_Personal_Docs_from_Staff_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Including housing applications, important papers,  no NB referrals - remove advocate names from paperwork</inlineHelpText>
+        <label>Collect Personal Docs from Staff Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Confidentiality_Agreement_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Confidentiality Agreement advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Confidentiality Agreement advocate.</inlineHelpText>
+        <label>Confidentiality Agreement Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Confidentiality Agreement Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsqscR</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Confidentiality_Agreement_Date__c</fullName>
+        <description>Confidentiality Agreement completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Confidentiality Agreement completion date.</inlineHelpText>
+        <label>Confidentiality Agreement Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Confidentiality_Agrmt_Reqs_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Confidentiality Agrmt Reqs Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Confidentiality Agrmt Reqs Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMu8T</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Confidentiality_Agrmt_Requirements_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Confidentiality Agrmt Requirements Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Confidentiality_Rules_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Confidentiality Rules Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Confidentiality Rules Advocate)</relationshipLabel>
+        <relationshipName>Checklists1</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Confidentiality_Rules_Completion_Date__c</fullName>
+        <description>2-block parking, 6-block meeting other people, our loc and neighborhood not to be shared.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>2-block parking, 6-block meeting other people, our loc and neighborhood not to be shared.</inlineHelpText>
+        <label>Confidentiality Rules Completion Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Coordinate_Exit_with_New_Prog_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coordinate Exit with New Prog Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Coordinate Exit with New Prog Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMtil</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Coordinate_Exit_with_New_Prog_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Contact THP Advocates. Inform them of the move. New address and contact info</inlineHelpText>
+        <label>Coordinate Exit with New Prog Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DSHS_Feedback_Survey_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DSHS Feedback Survey Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (DSHS Feedback Survey Advocate)</relationshipLabel>
+        <relationshipName>Checklists4Ghq</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DSHS_Feedback_Survey_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>DSHS Feedback Survey Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Discuss_Exit_Protocol_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Discuss Exit Protocol Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Discuss Exit Protocol Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMrZy</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Discuss_Exit_Protocol_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Clean room, wash/return linens (if done - ONE taxi)</inlineHelpText>
+        <label>Discuss Exit Protocol Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Exit_Eval_Forwarding_Addr_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Exit Eval &amp; Forwarding Addr. Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Exit Eval &amp; Forwarding Addr. Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMraX</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Exit_Evaluation_Forwarding_Addr_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Exit Evaluation &amp; Forwarding Addr. Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Exit_Packet_Given_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Exit Packet Given Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Exit Packet Given Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMrWQ</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Exit_Packet_Given_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Exit Packet Given Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Exit_Status_Flag__c</fullName>
+        <description>Returns 0 if green, 1 if yellow and 2 if green. Used to display status flag on case record. DO NOT USE ON LAYOUT.</description>
+        <externalId>false</externalId>
+        <formula>IF ( 
+AND(ISBLANK(Exit_Packet_Given_Advocate__c),
+ISBLANK(Exit_Packet_Given_Date__c),
+ISBLANK(Shelter_List_Check_Day_One_Advocate__c), ISBLANK(Shelter_List_Check_Day_One_Date__c), 
+ISBLANK(Discuss_Exit_Protocol_Advocate__c), ISBLANK(Discuss_Exit_Protocol_Date__c), 
+ISBLANK(Exit_Eval_Forwarding_Addr_Advocate__c), ISBLANK(Exit_Evaluation_Forwarding_Addr_Date__c), 
+ISBLANK(Coordinate_Exit_with_New_Prog_Advocate__c), ISBLANK(Coordinate_Exit_with_New_Prog_Date__c), 
+ISBLANK(Refer_to_CAP_if_Appropriate_Advocate__c), ISBLANK(Refer_to_CAP_if_Appropriate_Date__c), 
+ISBLANK(Collect_Pers_Docs_from_Staff_Advocate__c),
+ISBLANK(Collect_Personal_Docs_from_Staff_Date__c), 
+ISBLANK(Self_Sufficiency_Plan_Advocate__c), ISBLANK(Self_Sufficiency_Plan_Date__c), 
+ISBLANK(Update_Safety_Plan_Advocate__c),
+ISBLANK(Update_Safety_Plan_Date__c),
+ISBLANK(Confidentiality_Agrmt_Reqs_Advocate__c),
+ISBLANK(Confidentiality_Agrmt_Requirements_Date__c)), 
+
+0, 
+
+IF ( 
+OR(ISBLANK(Exit_Packet_Given_Advocate__c),
+ISBLANK(Exit_Packet_Given_Date__c),
+ISBLANK(Shelter_List_Check_Day_One_Advocate__c), ISBLANK(Shelter_List_Check_Day_One_Date__c), 
+ISBLANK(Discuss_Exit_Protocol_Advocate__c), ISBLANK(Discuss_Exit_Protocol_Date__c), 
+ISBLANK(Exit_Eval_Forwarding_Addr_Advocate__c), ISBLANK(Exit_Evaluation_Forwarding_Addr_Date__c), 
+ISBLANK(Coordinate_Exit_with_New_Prog_Advocate__c), ISBLANK(Coordinate_Exit_with_New_Prog_Date__c), 
+ISBLANK(Refer_to_CAP_if_Appropriate_Advocate__c), ISBLANK(Refer_to_CAP_if_Appropriate_Date__c), 
+ISBLANK(Collect_Pers_Docs_from_Staff_Advocate__c),
+ISBLANK(Collect_Personal_Docs_from_Staff_Date__c), 
+ISBLANK(Self_Sufficiency_Plan_Advocate__c), ISBLANK(Self_Sufficiency_Plan_Date__c), 
+ISBLANK(Update_Safety_Plan_Advocate__c),
+ISBLANK(Update_Safety_Plan_Date__c),
+ISBLANK(Confidentiality_Agrmt_Reqs_Advocate__c),
+ISBLANK(Confidentiality_Agrmt_Requirements_Date__c)), 
+
+1, 
+
+2))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Exit Status Flag</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exit_Status__c</fullName>
+        <description>Shows a colored flag depending on which fields are missing in the checklist.</description>
+        <externalId>false</externalId>
+        <formula>IF ( 
+AND(ISBLANK(Exit_Packet_Given_Advocate__c), ISBLANK(Exit_Packet_Given_Date__c), ISBLANK(Shelter_List_Check_Day_One_Advocate__c), ISBLANK(Shelter_List_Check_Day_One_Date__c), 
+ISBLANK(Discuss_Exit_Protocol_Advocate__c), ISBLANK(Discuss_Exit_Protocol_Date__c), 
+ISBLANK(Exit_Eval_Forwarding_Addr_Advocate__c), ISBLANK(Exit_Evaluation_Forwarding_Addr_Date__c), 
+ISBLANK(Coordinate_Exit_with_New_Prog_Advocate__c), ISBLANK(Coordinate_Exit_with_New_Prog_Date__c), 
+ISBLANK(Refer_to_CAP_if_Appropriate_Advocate__c), ISBLANK(Refer_to_CAP_if_Appropriate_Date__c), 
+ISBLANK(Collect_Pers_Docs_from_Staff_Advocate__c),
+ISBLANK(Collect_Personal_Docs_from_Staff_Date__c), 
+ISBLANK(Self_Sufficiency_Plan_Advocate__c), ISBLANK(Self_Sufficiency_Plan_Date__c), 
+ISBLANK(Update_Safety_Plan_Advocate__c),
+ISBLANK(Update_Safety_Plan_Date__c),
+ISBLANK(Confidentiality_Agrmt_Reqs_Advocate__c),
+ISBLANK(Confidentiality_Agrmt_Requirements_Date__c),
+ISBLANK(Participant_Feedback_Survey_Advocate__c),
+ISBLANK(Participant_Feedback_Survey_Date__c),
+ISBLANK(Resident_Evaluation_Survey_Advocate__c),
+ISBLANK(Resident_Evaluation_Survey_Date__c),
+ISBLANK(DSHS_Feedback_Survey_Advocate__c),
+ISBLANK(DSHS_Feedback_Survey_Date__c)
+),
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsY&quot;,&quot;Red&quot;), 
+
+IF ( 
+OR(ISBLANK(Exit_Packet_Given_Advocate__c), 
+ISBLANK(Exit_Packet_Given_Date__c), 
+ISBLANK(Shelter_List_Check_Day_One_Advocate__c), ISBLANK(Shelter_List_Check_Day_One_Date__c),
+ISBLANK(Discuss_Exit_Protocol_Advocate__c), ISBLANK(Discuss_Exit_Protocol_Date__c),
+ISBLANK(Exit_Eval_Forwarding_Addr_Advocate__c), ISBLANK(Exit_Evaluation_Forwarding_Addr_Date__c),
+ISBLANK(Coordinate_Exit_with_New_Prog_Advocate__c), ISBLANK(Coordinate_Exit_with_New_Prog_Date__c),
+ISBLANK(Refer_to_CAP_if_Appropriate_Advocate__c), ISBLANK(Refer_to_CAP_if_Appropriate_Date__c),
+ISBLANK(Collect_Pers_Docs_from_Staff_Advocate__c),
+ISBLANK(Collect_Personal_Docs_from_Staff_Date__c),
+ISBLANK(Self_Sufficiency_Plan_Advocate__c), ISBLANK(Self_Sufficiency_Plan_Date__c),
+ISBLANK(Update_Safety_Plan_Advocate__c),
+ISBLANK(Update_Safety_Plan_Date__c),
+ISBLANK(Confidentiality_Agrmt_Reqs_Advocate__c),
+ISBLANK(Confidentiality_Agrmt_Requirements_Date__c),
+ISBLANK(Participant_Feedback_Survey_Advocate__c),
+ISBLANK(Participant_Feedback_Survey_Date__c),
+ISBLANK(Resident_Evaluation_Survey_Advocate__c),
+ISBLANK(Resident_Evaluation_Survey_Date__c),
+ISBLANK(DSHS_Feedback_Survey_Advocate__c),
+ISBLANK(DSHS_Feedback_Survey_Date__c)
+),
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;), 
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;)))</formula>
+        <label>Exit Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Forms_Status_Flag__c</fullName>
+        <description>Returns 0 if green, 1 if yellow and 2 if green. Used to display status flag on case record. DO NOT USE ON LAYOUT.</description>
+        <externalId>false</externalId>
+        <formula>IF (
+AND(ISBLANK(Agreement_for_Services_Date__c), ISBLANK(Agreement_for_Services_Advocate__c), ISBLANK(Resident_Agreement_Date__c), ISBLANK( Resident_Agreement_Advocate__c ),
+ISBLANK(Confidentiality_Agreement_Date__c), ISBLANK(Confidentiality_Agreement_Advocate__c),
+ISBLANK(Temporary_Guardianship_Date__c), ISBLANK(Temporary_Guardianship_Advocate__c),
+ISBLANK(ROI_Family_Housing_Connection_Date__c ), ISBLANK( ROI_Family_Housing_Connection_Advocate__c),
+ISBLANK(Medical_History_Date__c), ISBLANK(Medical_History_Advocate__c),
+ISBLANK(Intro_to_GAIN_SS_Form_Date__c),ISBLANK(Intro_to_GAIN_SS_Form_Advocate__c),
+ISBLANK(GAIN_SS_Form_Date__c), ISBLANK(GAIN_SS_Form_Advocate__c)),
+
+0,
+
+IF (
+OR(ISBLANK(Agreement_for_Services_Date__c), ISBLANK(Agreement_for_Services_Advocate__c), ISBLANK(Resident_Agreement_Date__c), ISBLANK( Resident_Agreement_Advocate__c ),
+ISBLANK(Confidentiality_Agreement_Date__c), ISBLANK(Confidentiality_Agreement_Advocate__c),
+ISBLANK(Temporary_Guardianship_Date__c), ISBLANK(Temporary_Guardianship_Advocate__c),
+ISBLANK(ROI_Family_Housing_Connection_Date__c ), ISBLANK( ROI_Family_Housing_Connection_Advocate__c),
+ISBLANK(Medical_History_Date__c), ISBLANK(Medical_History_Advocate__c),
+ISBLANK(Intro_to_GAIN_SS_Form_Date__c),ISBLANK(Intro_to_GAIN_SS_Form_Advocate__c),
+ISBLANK(GAIN_SS_Form_Date__c), ISBLANK(GAIN_SS_Form_Advocate__c)),
+
+1,
+2))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Forms Status Flag</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Forms_Status__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (
+AND(ISBLANK(Agreement_for_Services_Date__c), ISBLANK(Agreement_for_Services_Advocate__c), ISBLANK(Resident_Agreement_Date__c), ISBLANK( Resident_Agreement_Advocate__c ),
+ISBLANK(Confidentiality_Agreement_Date__c), ISBLANK(Confidentiality_Agreement_Advocate__c),
+ISBLANK(Temporary_Guardianship_Date__c), ISBLANK(Temporary_Guardianship_Advocate__c),
+ISBLANK(ROI_Family_Housing_Connection_Date__c ), ISBLANK( ROI_Family_Housing_Connection_Advocate__c),
+ISBLANK(Medical_History_Date__c), ISBLANK(Medical_History_Advocate__c),
+ISBLANK(Intro_to_GAIN_SS_Form_Date__c),ISBLANK(Intro_to_GAIN_SS_Form_Advocate__c),
+ISBLANK(GAIN_SS_Form_Date__c), ISBLANK(GAIN_SS_Form_Advocate__c)),
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsY&quot;,&quot;Red&quot;),
+
+IF (
+OR(ISBLANK(Agreement_for_Services_Date__c), ISBLANK(Agreement_for_Services_Advocate__c), ISBLANK(Resident_Agreement_Date__c), ISBLANK( Resident_Agreement_Advocate__c ),
+ISBLANK(Confidentiality_Agreement_Date__c), ISBLANK(Confidentiality_Agreement_Advocate__c),
+ISBLANK(Temporary_Guardianship_Date__c), ISBLANK(Temporary_Guardianship_Advocate__c),
+ISBLANK(ROI_Family_Housing_Connection_Date__c ), ISBLANK( ROI_Family_Housing_Connection_Advocate__c),
+ISBLANK(Medical_History_Date__c), ISBLANK(Medical_History_Advocate__c),
+ISBLANK(Intro_to_GAIN_SS_Form_Date__c),ISBLANK(Intro_to_GAIN_SS_Form_Advocate__c),
+ISBLANK(GAIN_SS_Form_Date__c), ISBLANK(GAIN_SS_Form_Advocate__c)),
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;),
+
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;)))</formula>
+        <label>Forms Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GAIN_SS_Form_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>GAIN-SS Form Advocate</description>
+        <externalId>false</externalId>
+        <inlineHelpText>GAIN-SS Form Advocate</inlineHelpText>
+        <label>GAIN-SS Form Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (GAIN-SS Form Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsqtN8</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GAIN_SS_Form_Date__c</fullName>
+        <description>GAIN-SS Form completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>GAIN-SS Form completion date.</inlineHelpText>
+        <label>GAIN-SS Form Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Give_Schedule_Planner_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Give schedule planner advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Give schedule planner advocate.</inlineHelpText>
+        <label>Give Schedule Planner Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Give Schedule Planner Advocate)</relationshipLabel>
+        <relationshipName>Checklists7</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Give_schedule_planner_date__c</fullName>
+        <description>Give schedule planner completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Give schedule planner completion date.</inlineHelpText>
+        <label>Give Schedule Planner Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IOCs_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>IOCs  Explained Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (IOCs Advocate)</relationshipLabel>
+        <relationshipName>Checklists4</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IOCs_Completion_Date__c</fullName>
+        <description>Purpose, ways of getting them.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Purpose, ways of getting them.</inlineHelpText>
+        <label>IOCs Explained Completion Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IOCs__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF (AND(NOT(ISBLANK(  IOCs_Completion_Date__c )), NOT(ISBLANK(  IOCs_Advocate__c  ))),
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;),
+(IF (AND(ISBLANK(  IOCs_Completion_Date__c  ), ISBLANK( IOCs_Advocate__c  )),
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsY&quot;,&quot;Red&quot;),
+IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;))))</formula>
+        <label>IOCs Explained</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Important_Program_Expectations_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Important Program Expectations Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Important Program Expectations Advocate)</relationshipLabel>
+        <relationshipName>Checklists3</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Important_Program_Expectations_Date__c</fullName>
+        <description>Weekly goals meeting, actively look for housing, curfew, planning ahead (advocates not available 24/7, also encourage non-English speaking residents to inform us if they are interested in specific support groups or if they move their goals meetings to an earlier date so we can get a new interpreter ASAP), chores and communal living, kitchen/pantry guidelines, childcare/supervision (on same floor, Childcare Agreements), access to EJ computer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Weekly goals meeting, actively look for housing, curfew, planning ahead ,chores and communal living, kitchen/pantry guidelines, childcare/supervision (on same floor, Childcare Agreements), access to EJ computer.</inlineHelpText>
+        <label>Important Program Expectations Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Intro_to_GAIN_SS_Form_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Intro to GAIN-SS Form advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Intro to GAIN-SS Form advocate.</inlineHelpText>
+        <label>Intro to GAIN-SS Form Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Intro to GAIN-SS Form Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsqtMZ</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Intro_to_GAIN_SS_Form_Date__c</fullName>
+        <description>Intro to GAIN-SS Form completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Intro to GAIN-SS Form completion date.</inlineHelpText>
+        <label>Intro to GAIN-SS Form Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Medical_History_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Medical History Advocate</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Medical History Advocate</inlineHelpText>
+        <label>Medical History Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Medical History Advocate)</relationshipLabel>
+        <relationshipName>Checklistsqszr</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Medical_History_Date__c</fullName>
+        <description>Medical History completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Medical History completion date.</inlineHelpText>
+        <label>Medical History Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Outside_Provider_Info_Policy_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Outside Provider Info &amp; Policy on Missed Appts Advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Outside Provider Info &amp; Policy on Missed Appts Advocate.</inlineHelpText>
+        <label>Outside Provider Info &amp; Policy Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Outside Provider Info &amp; Policy Advocate)</relationshipLabel>
+        <relationshipName>Checklists5</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Outside_Provider_Info_Policy_Date__c</fullName>
+        <description>Outside Provider Info &amp; Policy on Missed Appts Date completed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Outside Provider Info &amp; Policy on Missed Appts Date completed.</inlineHelpText>
+        <label>Outside Provider Info &amp; Policy Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Feedback_Survey_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Participant Feedback Survey Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Participant Feedback Survey Advocate)</relationshipLabel>
+        <relationshipName>Checklists4Gaz</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Feedback_Survey_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Participant Feedback Survey Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Record__r.Contact__r.FirstName +&apos; &apos;+ Case_Record__r.Contact__r.LastName</formula>
+        <label>Participant Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Particular_Concerns_or_Goals_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Particular Concerns or Goals advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Particular Concerns or Goals advocate.</inlineHelpText>
+        <label>Particular Concerns or Goals Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Particular Concerns or Goals Advocate)</relationshipLabel>
+        <relationshipName>Checklists6</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Particular_Concerns_or_Goals_Date__c</fullName>
+        <description>Particular Concerns or Goals completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Particular Concerns or Goals completion date.</inlineHelpText>
+        <label>Particular Concerns or Goals Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ROI_Family_Housing_Connection_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>ROI - Family Housing Connection advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ROI - Family Housing Connection advocate.</inlineHelpText>
+        <label>ROI - Family Housing Connection Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (ROI - Family Housing Connection Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsqsqA</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ROI_Family_Housing_Connection_Date__c</fullName>
+        <description>ROI - Family Housing Connection completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ROI - Family Housing Connection completion date.</inlineHelpText>
+        <label>ROI - Family Housing Connection Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Refer_to_CAP_if_Appropriate_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Refer to CAP if Appropriate Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Refer to CAP if Appropriate Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMu6x</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Refer_to_CAP_if_Appropriate_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Complete screening before exit.</inlineHelpText>
+        <label>Refer to CAP if Appropriate Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Resident_Agreement_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Resident Agreement advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Resident Agreement advocate.</inlineHelpText>
+        <label>Resident Agreement Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Resident Agreement Advocate)</relationshipLabel>
+        <relationshipName>Checklists9</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resident_Agreement_Date__c</fullName>
+        <description>Resident Agreement completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Resident Agreement completion date.</inlineHelpText>
+        <label>Resident Agreement Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Resident_Evaluation_Survey_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Resident Evaluation Survey Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Resident Evaluation Survey Advocate)</relationshipLabel>
+        <relationshipName>Checklists4GgO</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Resident_Evaluation_Survey_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Resident Evaluation Survey Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Self_Sufficiency_Plan_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Self-Sufficiency Plan Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Self-Sufficiency Plan Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMu8S</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Self_Sufficiency_Plan_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Self-Sufficiency Plan Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Shelter_List_Check_Day_One_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Shelter List / Check Day One Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Shelter List / Check Day One Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMrXx</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Shelter_List_Check_Day_One_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Shelter List / Check Day One Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Temporary_Guardianship_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Temporary Guardianship advocate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Temporary Guardianship advocate.</inlineHelpText>
+        <label>Temporary Guardianship Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Temporary Guardianship Advocate)</relationshipLabel>
+        <relationshipName>Checklistsqskq</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Temporary_Guardianship_Date__c</fullName>
+        <description>Temporary Guardianship completion date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Temporary Guardianship completion date.</inlineHelpText>
+        <label>Temporary Guardianship Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tour_Completion_Date__c</fullName>
+        <description>Sign in/out, goals sign-up, cleaning supplies, pantry and laundry room (clarify usage guidelines), Serenity Room, teen room (if applicable), library, phone room, garage (point out trash vs recycling.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sign in/out, goals sign-up, cleaning supplies, pantry and laundry room (clarify usage guidelines), Serenity Room, teen room (if applicable), library, phone room, garage (point out trash vs recycling.</inlineHelpText>
+        <label>Tour Completion Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Tour_Given_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Tour Given Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists</relationshipLabel>
+        <relationshipName>Checklists</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Update_Safety_Plan_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Update Safety Plan Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Update Safety Plan Advocate)</relationshipLabel>
+        <relationshipName>ChecklistsMu8m</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Update_Safety_Plan_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Update Safety Plan Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Welcome_Packet_Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Welcome Packet Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Checklists (Welcome Packet Advocate)</relationshipLabel>
+        <relationshipName>Checklists2</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Welcome_Packet_Completion_Date__c</fullName>
+        <description>Date went through welcome packet.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date went through welcome packet.</inlineHelpText>
+        <label>Welcome Packet Completion Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <label>Checklist</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Checklists</fullName>
+        <columns>NAME</columns>
+        <columns>Participant_Name__c</columns>
+        <columns>Case_Record__c</columns>
+        <columns>Arrival_Status__c</columns>
+        <columns>Forms_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Checklists</label>
+    </listViews>
+    <listViews>
+        <fullName>Checklist_Statu</fullName>
+        <columns>NAME</columns>
+        <columns>Case_Record__c</columns>
+        <columns>Participant_Name__c</columns>
+        <columns>Arrival_Status__c</columns>
+        <columns>Forms_Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Checklist Status</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CHK-{00000}</displayFormat>
+        <label>Checklist Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Checklists</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>Types of Service Participations that are considered Group.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Group Services Types</label>
+</CustomObject>

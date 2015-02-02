@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to store information specific to the enrollment of a participant into a program.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Additional_Phone_Number_for_Legal__c</fullName>
+        <description>Additional Phone Number for legal advocate only.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional Phone Number for legal advocate only.</inlineHelpText>
+        <label>Additional Phone Number for Legal</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Advocate__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Program Advocate</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Program Advocate</inlineHelpText>
+        <label>Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Enrollments</relationshipLabel>
+        <relationshipName>Enrollments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Age__c</fullName>
+        <externalId>false</externalId>
+        <formula>Child__r.Formula_Age__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Age</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Record__c</fullName>
+        <description>Case Record for the participant enrolled in the Program.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Case Record for the participant enrolled in the Program.</inlineHelpText>
+        <label>Case Record</label>
+        <referenceTo>Case_Record__c</referenceTo>
+        <relationshipLabel>Program Enrollments</relationshipLabel>
+        <relationshipName>Enrollments</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Child_Date_of_Birth__c</fullName>
+        <externalId>false</externalId>
+        <formula>Child__r.Birthdate</formula>
+        <label>Child Date of Birth</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Child_Needs_Interpreter__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Child__r.Was_an_Interpreter_Used__c)</formula>
+        <label>Child Needs Interpreter</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Child_Primary_Language__c</fullName>
+        <externalId>false</externalId>
+        <formula>if (INCLUDES(Child__r.Primary_Language__c, &quot;Amharic&quot;), &quot;Amharic&quot;+BR(),null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Arabic&quot;), &quot;Arabic&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Cantonese&quot;), &quot;Cantonese&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Farsi&quot;), &quot;Farsi&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Korean&quot;), &quot;Korean&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Laotian&quot;), &quot;Laotian&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Mandarin&quot;), &quot;Mandarin&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Oromo&quot;), &quot;Oromo&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Portuguese&quot;), &quot;Portuguese&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Punjabi&quot;), &quot;Punjabi&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Russian&quot;), &quot;Russian&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Somali&quot;), &quot;Somali&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Spanish&quot;), &quot;Spanish&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Tagalog&quot;), &quot;Tagalog&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Thai&quot;), &quot;Thai&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Tigrigna&quot;), &quot;Tigrigna&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Urdu&quot;), &quot;Urdu&quot;+BR(), null)+
+if (INCLUDES(Child__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Vietnamese&quot;, null)</formula>
+        <label>Child Primary Language</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Child__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup the child for this program enrollment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Lookup the child for this program enrollment.</inlineHelpText>
+        <label>Child</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Enrollments (Child)</relationshipLabel>
+        <relationshipName>ChildEnrollments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Criminal_Justice_System_Advocacy_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Criminal Justice System Advocacy Notes</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Criminal_Justice_System_Advocacy__c</fullName>
+        <externalId>false</externalId>
+        <label>Criminal Justice System Advocacy</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child Abuse/Child Sexual Assault</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Abuser Felony</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Victim/Defendant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Date__c</fullName>
+        <description>Date of enrollment in the program.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of enrollment in the program.</inlineHelpText>
+        <label>Enrollment Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Gender__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Child__r.Gender__c)</formula>
+        <label>Gender</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Grade__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text( Child__r.Grade__c )</formula>
+        <label>Grade</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Household__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Household for enrolled participant.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Household for enrolled participant.</inlineHelpText>
+        <label>Household</label>
+        <referenceTo>npo02__Household__c</referenceTo>
+        <relationshipLabel>Enrollments</relationshipLabel>
+        <relationshipName>Enrollments_del</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Need_Interpreter__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Case_Record__r.Contact__r.Was_an_Interpreter_Used__c)</formula>
+        <label>Need Interpreter?</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Record__r.Contact__r.Participant_Id__c</formula>
+        <label>Participant ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Record__r.Contact__r.FirstName + &apos; &apos; + Case_Record__r.Contact__r.LastName</formula>
+        <label>Participant Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Language__c</fullName>
+        <externalId>false</externalId>
+        <formula>if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Amharic&quot;), &quot;Amharic&quot;+BR(),null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Arabic&quot;), &quot;Arabic&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Cantonese&quot;), &quot;Cantonese&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Farsi&quot;), &quot;Farsi&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Korean&quot;), &quot;Korean&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Laotian&quot;), &quot;Laotian&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Mandarin&quot;), &quot;Mandarin&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Oromo&quot;), &quot;Oromo&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Portuguese&quot;), &quot;Portuguese&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Punjabi&quot;), &quot;Punjabi&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Russian&quot;), &quot;Russian&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Somali&quot;), &quot;Somali&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Spanish&quot;), &quot;Spanish&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Tagalog&quot;), &quot;Tagalog&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Thai&quot;), &quot;Thai&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Tigrigna&quot;), &quot;Tigrigna&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Urdu&quot;), &quot;Urdu&quot;+BR(), null)+
+if (INCLUDES(Case_Record__r.Contact__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Vietnamese&quot;, null)</formula>
+        <label>Primary Language</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <description>The Program that the participant is enrolled in.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Program that the participant is enrolled in.</inlineHelpText>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Program Enrollments</relationshipLabel>
+        <relationshipName>Program_Enrollments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Race__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Child__r.Race_Ethnicity__c)</formula>
+        <label>Race</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Safe_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Record__r.Contact__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Safe Phone Number</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Spanish_Hispanic_Latino__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text( Child__r.SpanishHispanicLatino__c )</formula>
+        <label>Spanish/Hispanic/Latino</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_Code__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Record__r.Contact__r.MailingPostalCode</formula>
+        <label>Zip Code</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Enrollment</label>
+    <nameField>
+        <displayFormat>E-{00000}</displayFormat>
+        <label>Enrollment Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Enrollments</pluralLabel>
+    <recordTypes>
+        <fullName>CDVRT</fullName>
+        <active>false</active>
+        <description>CDVRT Specific Record Type</description>
+        <label>CDVRT</label>
+        <picklistValues>
+            <picklist>Criminal_Justice_System_Advocacy__c</picklist>
+            <values>
+                <fullName>Abuser Felony</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child Abuse%2FChild Sexual Assault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Victim%2FDefendant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Children</fullName>
+        <active>true</active>
+        <description>Children&apos;s Program Specific Record Type</description>
+        <label>Children Program</label>
+        <picklistValues>
+            <picklist>Criminal_Justice_System_Advocacy__c</picklist>
+            <values>
+                <fullName>Abuser Felony</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child Abuse%2FChild Sexual Assault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Victim%2FDefendant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Exit</fullName>
+        <active>true</active>
+        <description>This is the enrollment for exiting participants.</description>
+        <label>Exit</label>
+        <picklistValues>
+            <picklist>Criminal_Justice_System_Advocacy__c</picklist>
+            <values>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Legal_Advocacy</fullName>
+        <active>false</active>
+        <description>Legal Advocacy Program Specific Record Type</description>
+        <label>Legal Advocacy</label>
+        <picklistValues>
+            <picklist>Criminal_Justice_System_Advocacy__c</picklist>
+            <values>
+                <fullName>Abuser Felony</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child Abuse%2FChild Sexual Assault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Victim%2FDefendant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Mental_Health</fullName>
+        <active>false</active>
+        <description>Mental Health Program Specific Record Type</description>
+        <label>Mental Health Program</label>
+        <picklistValues>
+            <picklist>Criminal_Justice_System_Advocacy__c</picklist>
+            <values>
+                <fullName>Abuser Felony</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child Abuse%2FChild Sexual Assault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Victim%2FDefendant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Women_s_Advocacy</fullName>
+        <active>true</active>
+        <description>Women&apos;s Advocacy Program Specifc Record Type (incl Bilingual and Shoreline)</description>
+        <label>Women&apos;s Advocacy</label>
+        <picklistValues>
+            <picklist>Criminal_Justice_System_Advocacy__c</picklist>
+            <values>
+                <fullName>Abuser Felony</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Abuser Misdemeanor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child Abuse%2FChild Sexual Assault</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Victim%2FDefendant</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Enrollment_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Household__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Participant_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Program__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Prevent_Enrollment_On_Exited_CR</fullName>
+        <active>true</active>
+        <description>If we are trying to enroll a participant in an exited Case Record do not allow.</description>
+        <errorConditionFormula>ISPICKVAL(Case_Record__r.Status__c, &apos;Exited&apos;)</errorConditionFormula>
+        <errorMessage>You cannot create an enrollment for an Exited case record.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Children_Program_Enrollment</fullName>
+        <availability>online</availability>
+        <description>Custom button to start a new enrollment with fields pre-populated.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Children Program Enrollment</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a0O/e?CF00Ni0000007O9ra={!Case_Record__c.Name}&amp;retURL={!Enrollment__c.Case_Record__c}&amp;CF00Ni000000DU9HH={!Case_Record__c.Household__c}&amp;RecordType=012i000000073u2</url>
+    </webLinks>
+</CustomObject>

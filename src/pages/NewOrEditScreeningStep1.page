@@ -1,0 +1,52 @@
+<!-- Step 1 of Screening Wizard (Caller Info) -->
+<apex:page standardController="Screening__c" extensions="ScreeningController">	
+    <apex:sectionHeader title="Screening" subtitle="Screening for {!participant.Name} - {!$Label.Screening_Page_Link_Caller_Info}"/>
+
+	  <apex:form >
+	    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+	    
+	    <apex:pageBlock mode="edit">						
+            <apex:pageBlockButtons >
+            	<div style="text-align: left">
+                <apex:commandLink action="{!getPhoneScreeningPage}" value="{!$Label.Screening_Page_Link_Caller_Info}" id="PhoneScreeningLink"/>              
+                &nbsp;<apex:commandLink action="{!getDVHistoryScreeningPage}" value="{!$Label.Screening_Page_Link_DV_History_Safety}" id="DVHistoryLink"/>
+                &nbsp;<apex:commandLink action="{!getChildrenScreeningPage}" value="{!$Label.Screening_Page_Link_Children}" id="ChildrenScreeningLink"/>
+                &nbsp;<apex:commandLink action="{!getMedicalAndSpecialNeedsScreeningPage}" value="{!$Label.Screening_Page_Link_Medical_Special_Needs}" id="MedicalAndSpecialNeedsScreeningLink"/>              
+                &nbsp;<apex:commandLink action="{!getArrivalScreeningPage}" value="{!$Label.Screening_Page_Link_Arrival}" id="ArrivalLink"/>
+                &nbsp;<apex:commandLink action="{!getCallInfoAndStatusScreeningPage}" value="{!$Label.Screening_Page_Link_Call_Info_Status}" id="CallInfoAndStatusScreeningLink"/>
+                </div>
+                <br/>
+                <div style="text-align: left; margin-left: 150px">
+	        	<apex:commandButton action="{!save}" value="Save"/>
+            	<apex:commandButton action="{!getDVHistoryScreeningPage}" value="Next"/>
+            	<apex:commandButton action="{!cancel}" value="Cancel"/>
+            	</div>
+	      	</apex:pageBlockButtons>
+	
+		  <apex:pageBlockSection showHeader="true" columns="1" title="Caller Info">
+    	    <apex:outputText escape="false" value="{!$Label.Screening_Prompt}"/>
+    	    <apex:inputField value="{!participant.Birthdate}" id="ContactBirthDate"/>
+    	  </apex:pageBlockSection>	
+    	  
+	      <apex:pageBlockSection showHeader="false" columns="2" title="Caller Info">	        
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Caller_Info_Fields}" var="f"> 
+        		<apex:inputField value="{!Screening__c[f]}" />
+    		</apex:repeat>
+	      </apex:pageBlockSection>
+	      	       
+	      <apex:pageBlockSection showHeader="true" columns="1" title="Phone">
+    	    <apex:outputText escape="false" value="{!$Label.Screening_Phone_Prompt}"/>
+    	  </apex:pageBlockSection>	       
+	      <apex:pageBlockSection showHeader="false" columns="2" title="Phone">	             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Phone_Screening_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		   	
+    	  </apex:pageBlockSection>
+    	  <apex:pageBlockSection showHeader="false" columns="1" title="Phone">
+    	    <apex:outputText escape="false" value="{!$Label.Screening_Abuser_Phone_Prompt}"/> 
+    	  </apex:pageBlockSection>    	  
+	    </apex:pageBlock>
+	    
+	  </apex:form>
+
+</apex:page>

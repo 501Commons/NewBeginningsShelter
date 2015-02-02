@@ -1,0 +1,40 @@
+<apex:page controller="CreateBedNightsController" sidebar="false" showHeader="false">
+    <apex:form >    	
+        <apex:pageBlock >
+         	<apex:pageMessages />
+        	<apex:pageBlockSection columns="1">
+        		<apex:pageBlockSectionItem >
+        		<apex:outputText value="Create Bed Nights for the following date range:" />
+        		</apex:pageBlockSectionItem>
+        	</apex:pageBlockSection>	
+        	
+        	<apex:pageBlockSection >
+        		<apex:pageBlockSectionItem >
+        			<apex:outputLabel value="Start Date" />
+        			<apex:outputPanel >
+        				<div class="requiredInput">
+                    		<div class="requiredBlock"></div>
+                				<apex:inputText value="{!customStartDate}" id="customStartDate" onclick="DatePicker.pickDate(false,this,false);"/>
+            			</div>
+            		</apex:outputPanel>
+        		</apex:pageBlockSectionItem>
+        		        	        						
+        		<apex:pageBlockSectionItem >
+        			<apex:outputLabel value="End Date" />
+        			<apex:outputPanel >
+        				<div class="requiredInput">
+                    		<div class="requiredBlock"></div>
+                				<apex:inputText value="{!customEndDate}" id="customEndDate" onclick="DatePicker.pickDate(false,this,false);"/>
+            			</div>
+            		</apex:outputPanel>
+        		</apex:pageBlockSectionItem>
+
+	        </apex:pageBlockSection>
+	        <apex:pageBlockButtons >	
+	        	<apex:actionFunction name="save" action="{!create}"/>	            	         	                  	            	        	  
+    			<apex:commandButton action="{!create}" value="Create"/>    			    			
+    			<apex:commandButton onClick="window.close();" value="Cancel"/>    	    			
+	        </apex:pageBlockButtons>		       		
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

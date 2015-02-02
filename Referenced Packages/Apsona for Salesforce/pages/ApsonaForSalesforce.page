@@ -1,0 +1,17 @@
+<apex:page sidebar="false" standardStylesheets="false" showHeader="{!if($CurrentPage.parameters.showHeader != null,$CurrentPage.parameters.showHeader,'true')}">
+  <script type="text/javascript">
+    var __sfdcSessionId = '{!GETSESSIONID()}';
+    var Apsona = { 
+        "version": "1.4",
+        "user": {
+            "name": "{!JSENCODE($User.FirstName)} {!JSENCODE($User.LastName)}", 
+            "loginId": "{!JSENCODE($User.Username)}", 
+            "email": "{!$User.Email}", 
+            "id": "{!$User.Id}", 
+            "orgId": "{!$Organization.Id}", 
+            "company": "{!JSENCODE($Organization.Name)}"
+        }
+    };
+  </script>
+  <script type="text/javascript" src="https://service.apsona.com/sfdc/apsona.min.js"></script>
+</apex:page>

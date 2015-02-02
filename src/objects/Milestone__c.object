@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contract_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Outcome__r.Contract__r.Name</formula>
+        <label>Contract Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag used to determine if the milestone should be counted or not. It will be used only by reporting and set by code. It should not be exposed on layout.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag used to determine if the milestone should be counted or not. It will be used only by reporting and set by code. It should not be exposed on layout.</inlineHelpText>
+        <label>Count?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_Milestone_Met__c</fullName>
+        <description>This is the Date of Service from the Service Participation.</description>
+        <externalId>false</externalId>
+        <formula>Service_Participation__r.Date_of_Service__c</formula>
+        <inlineHelpText>This is the Date of Service from the Service Participation.</inlineHelpText>
+        <label>Date Milestone Met</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DescriptionFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Milestone__r.Description__c</formula>
+        <label>Description</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Milestone_NameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Milestone__r.Milestone_Name__c</formula>
+        <label>Milestone Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Outcome</label>
+        <referenceTo>Outcome__c</referenceTo>
+        <relationshipLabel>Milestones</relationshipLabel>
+        <relationshipName>Milestones</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Performance_Commitment__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template_Milestone__r.Performance_commitment__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Performance Commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Participation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Service Participation</label>
+        <referenceTo>ServiceParticipation__c</referenceTo>
+        <relationshipLabel>Milestones</relationshipLabel>
+        <relationshipName>Milestones</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Met</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Met</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Template_Milestone__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Parent template milestone.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent template milestone.</inlineHelpText>
+        <label>Template Milestone</label>
+        <referenceTo>Template_Milestone__c</referenceTo>
+        <relationshipLabel>Milestones</relationshipLabel>
+        <relationshipName>Milestones</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Milestone</label>
+    <nameField>
+        <displayFormat>ML-{00000}</displayFormat>
+        <label>Milestone Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Milestones</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Edit_Milestones</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Edit Milestones</masterLabel>
+        <openType>replace</openType>
+        <page>EditMilestones</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+</CustomObject>

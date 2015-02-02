@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Template for an Outcome</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <fields>
+        <fullName>Contract__c</fullName>
+        <externalId>false</externalId>
+        <label>Contract</label>
+        <referenceTo>Contract__c</referenceTo>
+        <relationshipLabel>Template Outcomes</relationshipLabel>
+        <relationshipName>Template_Outcomes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>IsParentContractLocked__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contract__r.IsLocked__c</formula>
+        <label>IsParentContractLocked</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Performance_commitment__c</fullName>
+        <description>Performance commitment / goal is a target # of participants that we promise to our funders that we as an organization will achieve in order to maintain contract compliance.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Performance commitment / goal is a target # of participants that we promise to our funders that we as an organization will achieve in order to maintain contract compliance.</inlineHelpText>
+        <label>Performance commitment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Template_Outcome_Detail__c</fullName>
+        <externalId>false</externalId>
+        <label>Template Outcome Detail</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Template_Outcome_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Template Outcome Name</label>
+        <length>80</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Number_of_Milestones__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Total Number of Milestones for this Outcome.</inlineHelpText>
+        <label>Total Number of Milestones</label>
+        <summaryForeignKey>Template_Milestone__c.Template_Outcome__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <label>Template Outcome</label>
+    <nameField>
+        <displayFormat>TO-{0000}</displayFormat>
+        <label>Template Outcome Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Template Outcomes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>New_Template_Outcome_Cust</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Template Outcome</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!requireScript(&quot;/soap/ajax/29.0/connection.js&quot;)}
+if ({!Contract__c.IsLocked__c} == 1) {
+alert(&quot;The parent contract is locked so you cannot add a new Template Outcome.&quot;);
+} else {
+//window.top.location.href = &quot;/a0V/e?CF00Nf0000000MMeg={!Contract__c.Name}&amp;retURL=&quot;;
+window.top.location = &apos;apex/NewTemplateOutcome?contractId={!Contract__c.Id}&apos;;
+}</url>
+    </webLinks>
+</CustomObject>

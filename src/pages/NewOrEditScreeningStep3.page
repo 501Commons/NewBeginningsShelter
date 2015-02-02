@@ -1,0 +1,95 @@
+<!-- Step 3 of Screening Wizard (Children) -->
+<apex:page standardController="Screening__c" extensions="ScreeningController">
+    <apex:sectionHeader title="Screening" subtitle="Screening for {!participant.Name} - {!$Label.Screening_Page_Link_Children}"/>
+
+	  <apex:form >
+	    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+	    
+	    <apex:pageBlock mode="edit">		 		  	
+	      <apex:pageBlockButtons >
+	      <div style="text-align: left">
+                <apex:commandLink action="{!getPhoneScreeningPage}" value="{!$Label.Screening_Page_Link_Caller_Info}" id="PhoneScreeningLink"/>              
+                &nbsp;<apex:commandLink action="{!getDVHistoryScreeningPage}" value="{!$Label.Screening_Page_Link_DV_History_Safety}" id="DVHistoryLink"/>
+                &nbsp;<apex:commandLink action="{!getChildrenScreeningPage}" value="{!$Label.Screening_Page_Link_Children}" id="ChildrenScreeningLink"/>
+                &nbsp;<apex:commandLink action="{!getMedicalAndSpecialNeedsScreeningPage}" value="{!$Label.Screening_Page_Link_Medical_Special_Needs}" id="MedicalAndSpecialNeedsScreeningLink"/>              
+                &nbsp;<apex:commandLink action="{!getArrivalScreeningPage}" value="{!$Label.Screening_Page_Link_Arrival}" id="ArrivalLink"/>
+                &nbsp;<apex:commandLink action="{!getCallInfoAndStatusScreeningPage}" value="{!$Label.Screening_Page_Link_Call_Info_Status}" id="CallInfoAndStatusScreeningLink"/>
+            </div>                             
+	        <br/>
+	        <div style="text-align: left; margin-left: 150px">	
+	          <apex:commandButton action="{!save}" value="Save"/>
+              <apex:commandButton action="{!getDVHistoryScreeningPage}" value="Previous"/>
+              <apex:commandButton action="{!getMedicalAndSpecialNeedsScreeningPage}" value="Next"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/>
+             </div>
+	      </apex:pageBlockButtons>
+	
+    	  <apex:pageBlockSection showHeader="true" columns="1" title="Household">
+    	    <apex:outputText escape="false" value="{!$Label.Screening_List_Children_Prompt}" />
+    	    <apex:outputText escape="false" value="{!$Label.Screening_Childrens_Advocates_Prompt}" />
+    	    <apex:inputField value="{!Screening__c.Total_Number_of_Children_in_HH__c}"/>
+    	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="List All Children">  
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_1}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    			
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_2}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+
+			<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_3}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_4}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_5}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_6}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_7}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_8}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_9}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    		
+    		<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.CHILD_10}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    		<apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/><apex:outputText value=""/> 
+    	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="Concerns About Children">
+    	  	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Concerns_About_Children_Fields}" var="c"> 
+        		<apex:inputField value="{!Screening__c[c]}" />
+    		</apex:repeat>
+    	  </apex:pageBlockSection>
+	
+	    </apex:pageBlock>
+	    
+	  </apex:form>
+
+</apex:page>

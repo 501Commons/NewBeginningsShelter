@@ -1,0 +1,4860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Models the participation of a client in a service.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Advocate__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>New Beginnings advocate responsible for this service participation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>New Beginnings advocate responsible for this service participation.</inlineHelpText>
+        <label>Advocate</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipName>ServiceParticipations</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Batch__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to support batch entry.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to support batch entry.</inlineHelpText>
+        <label>Batch</label>
+        <referenceTo>bde__Batch__c</referenceTo>
+        <relationshipLabel>Service Participations</relationshipLabel>
+        <relationshipName>Service_Participations</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Record__c</fullName>
+        <description>The Case Record under which this Client participated or was provided the Service.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Case Record under which this Client participated or was provided the Service.</inlineHelpText>
+        <label>Case Record</label>
+        <referenceTo>Case_Record__c</referenceTo>
+        <relationshipLabel>Service Participations</relationshipLabel>
+        <relationshipName>Participations</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Child_Participant__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp; Child__r.Id, 
+Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__r.Child__r.LastName)</formula>
+        <label>Child Participant</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Child__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>This is a lookup to the child record for which we created this service participation. This field will be automatically populated when the service participation is created by using the enrollment child lookup value if it exists.</description>
+        <externalId>false</externalId>
+        <label>Child</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Service Participations (Child)</relationshipLabel>
+        <relationshipName>Service_Participations</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Service__c</fullName>
+        <defaultValue>TODAY()</defaultValue>
+        <externalId>false</externalId>
+        <label>Date of Service</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Duration_Interpreter_was_used__c</fullName>
+        <description>Duration the interpreter was used during this service participation. Must not exceed duration of service.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Duration the interpreter was used during this service participation. Must not exceed duration of service.</inlineHelpText>
+        <label>Duration Interpreter was used</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Of_Type__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to identify the first participation in certain groups by the type of that service participation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to identify the first participation in certain groups by the type of that service participation</inlineHelpText>
+        <label>First Of Type</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Goals_Week__c</fullName>
+        <description>Week number for goals.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Week number for goals.</inlineHelpText>
+        <label>Goals Week</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Goals__c</fullName>
+        <externalId>false</externalId>
+        <label>Goals</label>
+        <picklist>
+            <controllingField>Goals_Week__c</controllingField>
+            <picklistValues>
+                <fullName>3 Docs:  Important docs obtained?</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Docs: Obtain important: (Pic ID, etc.)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Docs: Req funding for important docs</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>0 DV Ed: Review last week. Thoughts?</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 DV Ed: Week 2 / Topic entered in notes</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 DV Ed: Week 3 / Topic entered in notes</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4 DV Ed: Week 4 / Topic entered in notes</fullName>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 DV Ed: Week 5 / Topic entered in notes</fullName>
+                <controllingFieldValues>5</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6 DV Ed: Week 6 / Topic entered in notes</fullName>
+                <controllingFieldValues>6</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7 DV Ed: Week 7 / Topic entered in notes</fullName>
+                <controllingFieldValues>7</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 DV Education: Week 1 (DV 101)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Finance: Actively seeking employment</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Finance: Barriers to Self-Suffncy Plan</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Finance:  DSHS (Food Stamps, TANF)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Finance:  DSHS (Med Coupons)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Finance: Resume / Job search</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>0 Finance:  SS Plan - Edu, Job, SSDI,etc</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Health: Basic Health/MH resource needs</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Housing: Complete Housing Review</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Housing: Fam -  FHC appt.(Date &amp; loc?)</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Housing: Families - Discuss alt to FHC</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Housing: Fam - Obtain FHC ROI</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Housing: Fam - Sign up for FHC assesmt</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Housing: Fam- Update FHC Info</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Housing: Go over THP guide</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Housing: Go over unfinished apps</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Housing: Search /Open apps./ New Oppty</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Housing:  Self-Advocacy</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Housing: Tips/Barriers/Ways to address</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Legal: Pros/Cons of DVPO (n/a?)</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Legal: Refer to Legal.Clinic/ LA / POA</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Safety: Community voicemail needs</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>0 Safety: Conf Agrmt Req. (Phys Addrss)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Safety: Revisit Safety Plan</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Survey: DSHS- Done and put in PM&apos;s box</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Survey: TIS- Give out /can return anon</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4 Survey: Verify TIS survey received</fullName>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 Svcs: Action Plan for extension period</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 Svcs: Concerns? Addt&apos;l support needed?</fullName>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>0 Svcs: DV support groups / Support plan</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: DV Support Grps (Questions,etc)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Svcs: EXIT prep - Date &amp; expectations</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4 Svcs: EXIT prep- Day One screenings</fullName>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4 Svcs: EXIT prep- Packet, shelter #s</fullName>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Fam - Children&apos;s intake</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Fam - Explain CA&apos;s role</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Svcs: Guidelines / Check-in/ Progress?</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Remember appointments (Planner)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5 Svcs:  Revisit goals, program format</fullName>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Revisit welcome folder</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Hours_New_To_Group__c</fullName>
+        <description>This formula exists just to simplify building reports, to make it more straightforward to total the &quot;new to group&quot; and &quot;still active in group&quot; numbers</description>
+        <externalId>false</externalId>
+        <formula>if( First_Of_Type__c, Hours__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This formula exists just to simplify building reports, to make it more straightforward to total the &quot;new to group&quot; and &quot;still active in group&quot; numbers</inlineHelpText>
+        <label>Hours: New To Group</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours_Still_Active_In_Group__c</fullName>
+        <description>This formula exists just to simplify building reports, to make it more straightforward to total the &quot;new to group&quot; and &quot;still active in group&quot; numbers</description>
+        <externalId>false</externalId>
+        <formula>if(First_Of_Type__c, 0, Hours__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This formula exists just to simplify building reports, to make it more straightforward to total the &quot;new to group&quot; and &quot;still active in group&quot; numbers</inlineHelpText>
+        <label>Hours: Still Active In Group</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Interpreter_language_used__c</fullName>
+        <externalId>false</externalId>
+        <label>Interpreter language used</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>Participation case notes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Participation case notes.</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Participant_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Record__r.Contact__r.FirstName + &apos; &apos; +  Case_Record__r.Contact__r.LastName</formula>
+        <label>Participant Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_Enrollment__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Enrollment</label>
+        <referenceTo>Enrollment__c</referenceTo>
+        <relationshipLabel>Service Participations</relationshipLabel>
+        <relationshipName>Participations</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Service Participations</relationshipLabel>
+        <relationshipName>Participations</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Referred_To_Agency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Agency to which this Service Participant was referred to.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Agency to which this Service Participant was referred to.</inlineHelpText>
+        <label>Referred To Agency</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Service Participations</relationshipLabel>
+        <relationshipName>Service_Participations</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Waitlist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st appointment confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exited</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Topics_of_Legal_Advocacy__c</fullName>
+        <externalId>false</externalId>
+        <label>Topics of Legal Advocacy</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Address confidentiality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attorney referral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confidentiality / relocation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Court order(s)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Court prep / accompaniment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CPS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crime Victims Compensation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custody/Visitation Concerns</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dependency/CPS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dissolution / separation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Identity change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Landlord / tenant advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Orders - Anti-Harassment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Orders - No Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Orders - Protection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parenting Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paternity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Benefits/Financial Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Appointment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attorney appointment accompaniment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attorney consult</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Case Advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Case Management</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Childcare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consultation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Court accompaniment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Crisis Intervention</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>External Case Consultation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Family therapy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outings</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Helpline - Business Calls</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Helpline - Crisis Calls</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual Advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Intake/Child Assessment with Parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Case Consultation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kids Club</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Clinic appointment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Clinic Screening</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mental health group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mental Health Intern Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>One-on-One Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parenting Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone Consultation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Support Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Children&apos;s Support Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voice message</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mental Health Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parenting Skills</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parenting Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical Dependency Group</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sober Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Intake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meet and Greet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consult</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>One-on-One Advocacy (w/ Parent)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Goals Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Types_of_Referrals_Given__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the types of referrals / resources given to Participant during meeting.  You must enter the name of the actual program / service they are referred to in the &quot;Notes&quot; field above. Simply picking items out of the list will not satisfy City of Seattle.</inlineHelpText>
+        <label>Types of Referrals / Resources Given</label>
+        <picklist>
+            <picklistValues>
+                <fullName>ACP (Address Confidentiality Prog)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Childcare/Respite Care</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E.S.L (English Second Language)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food/Clothing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare/Medication</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other (explain in Notes)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Was_an_Interpreter_Used__c</fullName>
+        <externalId>false</externalId>
+        <label>Was an Interpreter Used?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ASL/TTY Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>Service Participation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Case_Record__c</columns>
+        <columns>Date_of_Service__c</columns>
+        <columns>Hours__c</columns>
+        <columns>Participant_Name__c</columns>
+        <columns>Advocate__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>P-{00000}</displayFormat>
+        <label>Service Participation Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Service Participations</pluralLabel>
+    <recordTypes>
+        <fullName>CDVRT</fullName>
+        <active>false</active>
+        <label>CDVRT</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Consult</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meet and Greet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>One-on-One Advocacy %28w%2F Parent%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Children</fullName>
+        <active>true</active>
+        <description>CAP Children</description>
+        <label>CAP Children</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Case Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Children%27s Support Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kids Club</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outings</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Exit</fullName>
+        <active>true</active>
+        <description>Record type should be used when exiting a participant.</description>
+        <label>Exit</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Exited</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>Address confidentiality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attorney referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confidentiality %2F relocation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court order%28s%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court prep %2F accompaniment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crime Victims Compensation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Custody%2FVisitation Concerns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dependency%2FCPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dissolution %2F separation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Identity change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Landlord %2F tenant advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orders - Anti-Harassment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orders - No Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orders - Protection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parenting Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paternity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Benefits%2FFinancial Support</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Exit</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Legal_Advocacy</fullName>
+        <active>false</active>
+        <label>Legal Advocacy</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>Address confidentiality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attorney referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confidentiality %2F relocation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court order%28s%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court prep %2F accompaniment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crime Victims Compensation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Custody%2FVisitation Concerns</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dependency%2FCPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dissolution %2F separation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Identity change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Immigration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Landlord %2F tenant advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orders - Anti-Harassment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orders - No Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orders - Protection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parenting Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paternity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Benefits%2FFinancial Support</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attorney appointment accompaniment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attorney consult</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court accompaniment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Clinic Screening</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Clinic appointment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Consultation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Voice message</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Mental_Health</fullName>
+        <active>false</active>
+        <label>Mental Health</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>1st appointment confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Waitlist</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Case Management</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crisis Intervention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family therapy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental Health Intern Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mental health group</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SH_Children</fullName>
+        <active>true</active>
+        <description>Shelter Children</description>
+        <label>SH Children</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Case Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Children%27s Support Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outings</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SH_DV_Advocacy</fullName>
+        <active>true</active>
+        <description>Shelter DV Advocacy</description>
+        <label>SH DV Advocacy</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>1st appointment confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Waitlist</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Case Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goals Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parenting Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support Group</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Women_s_Advocacy</fullName>
+        <active>true</active>
+        <description>CAP Women&apos;s Advocacy Program Specifc Record Type (incl Bilingual and Shoreline)</description>
+        <label>CAP Women&apos;s Advocacy</label>
+        <picklistValues>
+            <picklist>Goals_Week__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>9</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Goals__c</picklist>
+            <values>
+                <fullName>0 DV Ed%3A Review last week%2E Thoughts%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Finance%3A  SS Plan - Edu%2C Job%2C SSDI%2Cetc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Safety%3A Conf Agrmt Req%2E %28Phys Addrss%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>0 Svcs%3A DV support groups %2F Support plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 DV Education%3A Week 1 %28DV 101%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Obtain important%3A %28Pic ID%2C etc%2E%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Docs%3A Req funding for important docs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Food Stamps%2C TANF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Finance%3A  DSHS %28Med Coupons%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Health%3A Basic Health%2FMH resource needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Complete Housing Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Obtain FHC ROI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam - Sign up for FHC assesmt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Fam- Update FHC Info</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Families - Discuss alt to FHC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Housing%3A Go over THP guide</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Revisit Safety Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A DV Support Grps %28Questions%2Cetc%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Children%27s intake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Fam - Explain CA%27s role</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Remember appointments %28Planner%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Svcs%3A Revisit welcome folder</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 DV Ed%3A Week 2 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Finance%3A Resume %2F Job search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Fam -  FHC appt%2E%28Date %26 loc%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Go over unfinished apps</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Housing%3A Tips%2FBarriers%2FWays to address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Pros%2FCons of DVPO %28n%2Fa%3F%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2 Legal%3A Refer to Legal%2EClinic%2F LA %2F POA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 DV Ed%3A Week 3 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Docs%3A  Important docs obtained%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Actively seeking employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Finance%3A Barriers to Self-Suffncy Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A  Self-Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Housing%3A Search %2FOpen apps%2E%2F New Oppty</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A DSHS- Done and put in PM%27s box</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Survey%3A TIS- Give out %2Fcan return anon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A EXIT prep - Date %26 expectations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3 Svcs%3A Guidelines %2F Check-in%2F Progress%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 DV Ed%3A Week 4 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Survey%3A Verify TIS survey received</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Day One screenings</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>4 Svcs%3A EXIT prep- Packet%2C shelter %23s</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 DV Ed%3A Week 5 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A  Revisit goals%2C program format</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Action Plan for extension period</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5 Svcs%3A Concerns%3F Addt%27l support needed%3F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>6 DV Ed%3A Week 6 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>7 DV Ed%3A Week 7 %2F Topic entered in notes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>1st appointment confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Enrolled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Exited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Waitlist</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Topics_of_Legal_Advocacy__c</picklist>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Case Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Dependency Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parenting Group</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parenting Skills</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sober Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Support Group</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Referrals_Given__c</picklist>
+            <values>
+                <fullName>ACP %28Address Confidentiality Prog%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Childcare%2FRespite Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Community Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Court Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Culturally Appropriate Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DV Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E%2ES%2EL %28English Second Language%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Assistance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food%2FClothing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare%2FMedication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Housing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interpreter Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other %28explain in Notes%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent Skill Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Peer Group Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shelter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Substance Abuse Counseling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Was_an_Interpreter_Used__c</picklist>
+            <values>
+                <fullName>ASL%2FTTY Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_participation_dates</fullName>
+        <active>true</active>
+        <description>Check that for any service participation (except legal advocacy),  the service date &gt;= case record.Intake date and &lt;= Exit date. Service participation has to take place between Intake and Exit dates.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName &lt;&gt; &apos;Legal Advocacy&apos;,  OR (Date_of_Service__c &lt; Case_Record__r.Intake_Date__c,  Date_of_Service__c &gt; Case_Record__r.Exit_Date__c))</errorConditionFormula>
+        <errorDisplayField>Date_of_Service__c</errorDisplayField>
+        <errorMessage>Date of Service cannot be before the case record&apos;s Intake Date or after the case record&apos;s Exit Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Duration_of_Interpreter_Validation</fullName>
+        <active>true</active>
+        <description>Duration of Interpreter cannot exceed duration of service participation.</description>
+        <errorConditionFormula>Duration_Interpreter_was_used__c &gt;  Hours__c</errorConditionFormula>
+        <errorDisplayField>Duration_Interpreter_was_used__c</errorDisplayField>
+        <errorMessage>Interpreter duration cannot exceed number of service hours provided for this participation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_service_part_for_Exited_CR</fullName>
+        <active>true</active>
+        <description>Prevent the saving of a service participation for an Exited case record.</description>
+        <errorConditionFormula>ISPICKVAL(Case_Record__r.Status__c,&apos;Exited&apos;)</errorConditionFormula>
+        <errorMessage>You cannot create a service participation for an Exited case record.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Exit_Service_Participation</fullName>
+        <availability>online</availability>
+        <description>Custom button to create an exit participation and pre-populate fields.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Exit Service Participation</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0Q/e?CF00Ni0000007O9sx={!Enrollment__c.Name}&amp;CF00Ni0000007O9sy={!Enrollment__c.Program__c}&amp;CF00Ni0000007O9ss={!Enrollment__c.Case_Record__c}&amp;retURL=/{!ServiceParticipation__c.Id}&amp;RecordType=012e00000000ROG&amp;00Ni0000007O9su=0</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_CDVRT_Participation</fullName>
+        <availability>online</availability>
+        <description>Creates a new service participation with the record type, program, program enrollment and case record filled in.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New CDVRT Participation</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a0Q/e?CF00Ni0000007O9sx={!Enrollment__c.Name}&amp;CF00Ni0000007O9sy={!Enrollment__c.Program__c}&amp;CF00Ni0000007O9ss={!Enrollment__c.Case_Record__c}&amp;retURL=/{!ServiceParticipation__c.Id}&amp;RecordType=012i000000073uA</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Children_s_Service_Participation</fullName>
+        <availability>online</availability>
+        <description>Custom button to create new children&apos;s program services participation and pre-populate fields: record type, program, program enrollment and case record. If the Case Record Record Type is CAP -&gt; creates a CAP service participation, otherwise it&apos;s a Shelter SP.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Children&apos;s Service Participation</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0Q/e?CF00Ni0000007O9sx={!Enrollment__c.Name}&amp;CF00Ni0000007O9sy={!Enrollment__c.Program__c}&amp;CF00Ni0000007O9ss={!Enrollment__c.Case_Record__c}&amp;retURL=/{!ServiceParticipation__c.Id}&amp;RecordType={!IF(Case_Record__c.RecordType =&quot;CAP&quot;, &quot;012i000000073uB&quot;, &quot;012e00000000ZUC&quot;)}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Legal_Participation</fullName>
+        <availability>online</availability>
+        <description>Custom button to create new legal services participation and pre-populate fields.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Legal Participation</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a0Q/e?CF00Ni0000007O9sx={!Enrollment__c.Name}&amp;CF00Ni0000007O9sy={!Enrollment__c.Program__c}&amp;CF00Ni0000007O9ss={!Enrollment__c.Case_Record__c}&amp;retURL=/{!ServiceParticipation__c.Id}&amp;RecordType=012i000000073uC</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Mental_Health_Participation</fullName>
+        <availability>online</availability>
+        <description>Creates a new service participation with the record type, program, program enrollment and case record filled in.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Mental Health Participation</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0Q/e?CF00Ni0000007O9sx={!Enrollment__c.Name}&amp;CF00Ni0000007O9sy={!Enrollment__c.Program__c}&amp;CF00Ni0000007O9ss={!Enrollment__c.Case_Record__c}&amp;retURL=/{!ServiceParticipation__c.Id}&amp;RecordType=012i000000073uD</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Women_s_Advocacy_Participation</fullName>
+        <availability>online</availability>
+        <description>Creates a new service participation with the record type, program, program enrollment and case record filled in. If the Case Record Record Type is CAP -&gt; creates a CAP service participation, otherwise it&apos;s a Shelter SP.</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Women&apos;s Advocacy Participation</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>/a0Q/e?CF00Ni0000007O9sx={!Enrollment__c.Name}&amp;CF00Ni0000007O9sy={!Enrollment__c.Program__c}&amp;CF00Ni0000007O9ss={!Enrollment__c.Case_Record__c}&amp;retURL=/{!ServiceParticipation__c.Id}&amp;RecordType={!IF(Case_Record__c.RecordType =&quot;CAP&quot;, &quot;012i000000078Cr&quot;, &quot;012e00000000ZU7&quot;)}</url>
+    </webLinks>
+</CustomObject>

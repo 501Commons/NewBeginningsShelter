@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Screening_Abuser_Phone_Prompt</fullName>
+        <categories>Screening, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>03: Abuser&apos;s Phone Screening Prompt (After Safe Number field)</shortDescription>
+        <value>&lt;B&gt;Explore:&lt;/B&gt;&lt;I&gt;  If they are calling from abusers phone or if the abuser could potentially track the call via that phone&apos;s records.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Alert_Children_Advocate_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>39: Alert Children Advocate Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Action: &lt;/B&gt;&lt;I&gt; Please remember to alert the Children&apos;s Advocate if you have accepted a family with children &lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Answers_Confidential_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>29: Answers Confidential Prompt</shortDescription>
+        <value>&lt;B&gt;Note: &lt;/B&gt;&lt;I&gt; Reiterate that the caller&apos;s answers are confidential and will not preclude her from receiving services.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Car_Safety_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>14: Car Safety Prompt</shortDescription>
+        <value>&lt;B&gt;Note: Car Safety Planning Information&lt;/B&gt; - &lt;I&gt;Parking at least 2 blocks away, 2-Hour parking so must either move car frequently or buy a temporary pass from the city (we do not provide).  If the car belongs to the abuser they MAY NOT bring it to shelter - they must find somewhere out of the area to park the car.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Checking_Cell_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>21: Checking Cell Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Example:&lt;/B&gt;&lt;I&gt; Checking cell, publicly harassing, opening mail, showing up at work&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Children_Chores_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>13: Children Chores Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note: &lt;/B&gt;&lt;I&gt; Children are not required to do chores.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Childrens_Advocates_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>27: Children Advocates Screening Prompt</shortDescription>
+        <value>&quot;Please know that we have Children&apos;s Advocates who can work with you on a variety of goals while you&apos;re here.  These include, but are not limited to, supporting the children&apos;s transition to shelter, healthy communication between mom and child, support groups, finding school and childcare, etc.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_City_Area_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>17: City Area Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note:&lt;/B&gt;&lt;I&gt;  Specify the area of city/neighborhood.  If abuser is in jail, get release date.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Communal_Household_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>31: Communal Household Prompt</shortDescription>
+        <value>&quot;Because we are a communal living household, we ask the following questions in order to maintain a healthy environment for everyone at shelter.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Confidential_Shelter_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>11: Confidential Shelter  Screening Prompt</shortDescription>
+        <value>&quot;Most importantly, please remember that this is a confidential shelter, which means that &lt;B&gt; our location may not be disclosed to anyone, including family and friends. &lt;/B&gt; It is our mission to provide as safe an environment as possible for everyone.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_DV_History_Prompt</fullName>
+        <categories>Screening, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>15: Screening DV History Prompt</shortDescription>
+        <value>*Our conversation is confidential.  We do not disclose to the police, ICE, CPS, etc. without your permission to do so.  The only exception is if child abuse/neglect is suspected or reported or if you are a danger to yourself or others.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Dont_Give_Address</fullName>
+        <categories>Screening, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>34a: Dont Give Address Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note:&lt;/B&gt;&lt;I&gt; If caller is driving to Shelter, &lt;B&gt;Do not give address until they are on their way.&lt;/B&gt;&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Family_Friends_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>06: Family and Friends Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Explore:&lt;/B&gt;&lt;I&gt;   Try to identify possible safe places beforehand - in case the screening is not a good fit..  Shelter living is not ideal for everyone.  Safe family and friends can offer support during this time also.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_If_Caller_Has_Any_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>32: If Caller Has Any Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note: &lt;/B&gt;&lt;I&gt; If caller currently has any of the below, please consider other residents&apos; vulrnability (i.e. they had chicken pox before, will the caller be sharing a room, etc.) to determine whether or not it is safe to bring the caller into shelter.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Imminent_Danger_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>24: Imminent Danger Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Explore: &lt;/B&gt;&lt;I&gt; We are looking for callers who feel that they are being actively pursued and fear they are in imminent danger.  Contacting family or friends to find out information regarding the caller can be &apos;normal&apos; behavior.  Please explore this if it comes up - it is not necessarily an indicator of harm or active pursuit.  
+&lt;BR&gt;
+&lt;BR&gt;
+If they don&apos;t meet the criteria, refer to another shelter and/or resources.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Important_Docs_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>36: Important Docs Screening Prompt</shortDescription>
+        <value>&quot;If it is possible, please try to bring important documents for yourself and your children when you arrive.  These include &lt;B&gt;Court Orders, Divorce Papers/Parenting Plan, Social Security Cards, Passports, Birth Certificates, Credit Cards, etc.&lt;/B&gt;&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Is_There_History_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>20: Is There a History of Prompt</shortDescription>
+        <value>&quot;Is there a history of…&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_List_Children_Prompt</fullName>
+        <categories>Screening, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>26: List Children Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note:&lt;/B&gt; &lt;I&gt;If caller does not have children, you can skip to the next section.  If they do, list &lt;B&gt;ALL&lt;/B&gt; the children in the household, and whether or not they are coming to Shelter.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Location_Close_To_Shelter_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>18: Location Close to Shelter Prompt</shortDescription>
+        <value>&lt;B&gt;Note:&lt;/B&gt;&lt;I&gt;  If any location is close to the shelter (U-District, Wallingford), please refer to other confidential shelters.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Male_Child_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SHANNON 7: Male Child 12-18 Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Action: &lt;/B&gt;&lt;I&gt; If one of the children is a male of the ages 12-18, please check the board to see if we are able to place the family in their own room.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Not_Followed_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>35: Not Followed Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Example: &lt;/B&gt; &lt;I&gt;Make sure you are not followed when arriving to shelter, Ways to avoid the abuser or to stay safe if she runs into him/her, Cell phone safety, etc.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Out_Of_State_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>25: Out of State Screening Prompt</shortDescription>
+        <value>If a caller is from &lt;b&gt;OUT OF STATE&lt;/B&gt;, please address the following:</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Page_Link_Arrival</fullName>
+        <categories>Page Links, Screening</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Screening Page Link: Arrival</shortDescription>
+        <value>Arrival</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Page_Link_Call_Info_Status</fullName>
+        <categories>Page Links, Screening</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Screening Page Link: Call Info &amp; Status</shortDescription>
+        <value>Call Info &amp; Status</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Page_Link_Caller_Info</fullName>
+        <categories>Screening, Page Links</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Screening Page Link: Caller Info</shortDescription>
+        <value>Caller Info</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Page_Link_Children</fullName>
+        <categories>Page Links, Screening</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Screening Page Link: Children</shortDescription>
+        <value>Children</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Page_Link_DV_History_Safety</fullName>
+        <categories>Screening, Page Links</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Screening Page Link: DV History &amp; Safety</shortDescription>
+        <value>DV History &amp; Safety</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Page_Link_Medical_Special_Needs</fullName>
+        <categories>Page Links, Screening</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Screening Page Link: Medical &amp; Special Needs</shortDescription>
+        <value>Medical &amp; Special Needs</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Phone_Prompt</fullName>
+        <categories>Screening, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>02: Screening Phone Prompt</shortDescription>
+        <value>&quot;I need to ask you some questions about your situation to make sure that the services we provide will meet your needs. Do you have about twenty minutes? Is it safe for you to talk right now?&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Pickup_Spot_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>37: Pickup Spot Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note: &lt;/B&gt;&lt;I&gt; Do not hold space for more than &lt;B&gt;8 hours&lt;/B&gt; if the woman lives within King County.  Remind her to &lt;B&gt;call every day &lt;/B&gt;to keep her space if coming from out-of-state or Eastern Washington.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Pornographic_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>22: Pornographic Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Example: &lt;/B&gt;&lt;I&gt; Manipulated or forced to view pornographic material or to participate in pornographic type activities&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Previous_Screening_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>04: Previous Screenings Prompt (After Have you stayed at NB field)</shortDescription>
+        <value>&lt;B&gt;Action: &lt;/B&gt; &lt;I&gt; Check the exit status file on log computer and previous screenings even if they have answered &quot;No&quot;. &lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Probing_Questions_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>19: Probing Questions Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Optional Probing Questions&lt;/B&gt; &quot;I&apos;m going to ask you some questions that may be difficult to answer or upsetting.  This is not to pry, but is necessary to determine if our services are an appropriate fit for your needs.  If you are uncomfortable answering these questions, please let me know and I will do what I can to make this process as comfortable as possible.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Program_Guidelines_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>10: Program and Guidelines Prompt</shortDescription>
+        <value>&lt;B&gt;Explain Programs &amp; Guidelines: &lt;/B&gt;&lt;I&gt;New Beginnings is a 28 day stay shelter program.  If you were accepted we would work with you on goal setting, housing applications, and other important needs that you identify for yourself.  Our agency also provides services around issues of substance use and domestic violence.  We are able to accommodate some special needs, but we are not a wheel chair accessible program.
+&lt;BR&gt;
+Please be advised that this is a communal living household with shared chores, bedrooms, bathrooms, bunk beds, kitchen, laundry room, dining, and living room.  We offer advocacy based counseling, support groups, and assistance with accessing various community resources.  As a safety and security measure, there is an 11:30 pm nightly curfew.  we do not allow visitors, pets, weapons, drugs, or alcohol on the premises.  Additionally, we are mandated CPS reporters&quot;&lt;/I&gt;(Clarify).</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Prompt</fullName>
+        <categories>Screening, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>00: Screening Top Prompt</shortDescription>
+        <value>&lt;b&gt;Internal Staff Note: &lt;/b&gt; We are screening for women / women and children who are seeking emergency shelter due to a high safety risk domestic violence situation; with active pursuit of that individual requiring confidential emergency shelter  for 28 days to establish safety–some indicators of this need are often – aggressive stalking, verbal threats of critical nature or harm, physical harm to the person or property, fear of imminent harm or threat, making verbal or physical threats to family or friends.  
+&lt;p&gt;Contacting family or friends to find out information regarding the caller, can be “normal” behavior, please explore if this comes up, It is not necessarily an indicator of harm or active pursuit.&lt;/p&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Purpose_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>09: Purpose Screening Prompt</shortDescription>
+        <value>&quot;Let me start by saying that the purpose of screening is to determine whether or not New Beginnings can meet your needs.  New Beginnings is a confidential and communal shelter for battered women and their children.  
+&lt;BR&gt;
+&lt;BR&gt;
+We serve all women identified people.  we also serve women from a wide variety of cultural backgrounds.  Racist, classist, homophobic and other such comments are considered violent acts and would not be tolerated at the shelter.  This includes aggressive language such as profanity towards other residents and staff&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Refrigerated_Med_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>30: Refrigerated Meds Prompt</shortDescription>
+        <value>&lt;B&gt;Example: &lt;/B&gt;&lt;I&gt; Refrigerated medicine, outlet for medical machine&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Safe_Option_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>12: Safe Option Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note: &lt;/B&gt; &lt;I&gt;If not, our shelter is not a safe option.&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Safety_Confidentiality_Title</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>23: Safety and Confidentiality Title</shortDescription>
+        <value>&lt;B&gt;SAFETY AND CONFIDENTIALITY&lt;/B&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Suggested_Questions_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>16: Suggested Questions Prompt</shortDescription>
+        <value>&lt;B&gt;Explore:&lt;B&gt;&lt;I&gt;  Some suggested questions include:  have you tried to leave before?  What happened?  What has occurred most recently?  What do you think he/she might do next?  Has there been police involvement now or in the past?&lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_Time_Up_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>05: Time is Up Screening Prompt</shortDescription>
+        <value>&lt;B&gt;Note:  &lt;/B&gt; &lt;I&gt; We are not accepting shelter stays with &quot;Time is Up&quot; at this time. &lt;/I&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Screening_When_Exposed_Prompt</fullName>
+        <categories>Screenings, Prompts</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>33: When Exposed To Screening Prompt</shortDescription>
+        <value>&quot;When was the last time you or your children were exposed to…&quot;</value>
+    </labels>
+</CustomLabels>

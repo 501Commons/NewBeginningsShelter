@@ -1,0 +1,48 @@
+<!-- Step 6 of Screening Wizard (Call Info & Status) -->
+<apex:page standardController="Screening__c" extensions="ScreeningController">
+    <apex:sectionHeader title="Screening" subtitle="Screening for {!participant.Name} - {!$Label.Screening_Page_Link_Call_Info_Status}"/>
+
+	  <apex:form >
+	    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+	    
+	    <apex:pageBlock mode="edit">		 		  	
+	      <apex:pageBlockButtons >
+	      <div style="text-align: left">
+                <apex:commandLink action="{!getPhoneScreeningPage}" value="{!$Label.Screening_Page_Link_Caller_Info}" id="PhoneScreeningLink"/>              
+                &nbsp;<apex:commandLink action="{!getDVHistoryScreeningPage}" value="{!$Label.Screening_Page_Link_DV_History_Safety}" id="DVHistoryLink"/>
+                &nbsp;<apex:commandLink action="{!getChildrenScreeningPage}" value="{!$Label.Screening_Page_Link_Children}" id="ChildrenScreeningLink"/>
+                &nbsp;<apex:commandLink action="{!getMedicalAndSpecialNeedsScreeningPage}" value="{!$Label.Screening_Page_Link_Medical_Special_Needs}" id="MedicalAndSpecialNeedsScreeningLink"/>              
+                &nbsp;<apex:commandLink action="{!getArrivalScreeningPage}" value="{!$Label.Screening_Page_Link_Arrival}" id="ArrivalLink"/>
+                &nbsp;<apex:commandLink action="{!getCallInfoAndStatusScreeningPage}" value="{!$Label.Screening_Page_Link_Call_Info_Status}" id="CallInfoAndStatusScreeningLink"/>
+           </div>   
+           <br/>     
+	       <div style="text-align: left; margin-left: 150px"> 	
+	          <apex:commandButton action="{!save}" value="Save"/>
+              <apex:commandButton action="{!getArrivalScreeningPage}" value="Previous"/>
+              <apex:commandButton action="{!cancel}" value="Cancel"/>
+           </div>
+	      </apex:pageBlockButtons>
+	
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="Screening Call Info">
+    	    <apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Call_Info_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="Screening Status">  
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Status_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />
+    		</apex:repeat>
+    	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="Interpreter Needs">
+    	  	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Interpreter_Fields}" var="c"> 
+        		<apex:inputField value="{!Screening__c[c]}" />
+    		</apex:repeat>
+    	  </apex:pageBlockSection>
+	
+	    </apex:pageBlock>
+	    
+	  </apex:form>
+
+</apex:page>
