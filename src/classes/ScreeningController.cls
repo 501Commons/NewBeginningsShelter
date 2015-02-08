@@ -29,7 +29,7 @@ public with sharing class ScreeningController {
         	participantId = screening.Participant__c;
         	recordTypeId = screening.RecordTypeId;
         }      
-        participant = [select Name, Birthdate from Contact where id =:participantId];
+        participant = [select Name, FirstName, LastName, Birthdate from Contact where id =:participantId];
     }
     
     // The next three methods control navigation through
@@ -62,7 +62,7 @@ public with sharing class ScreeningController {
    }
    
    private PageReference getPageReference(PageReference page) {
-   	   string url = page.getUrl() + '?partId=' + participantId;  	   	    
+   	   string url = page.getUrl() + '?partId=' + participantId+'&RecordTypeId=' + recordTypeId;  	   	    
 	   return new PageReference(url);
    }
  

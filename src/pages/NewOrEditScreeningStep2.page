@@ -35,6 +35,47 @@
         		<apex:inputField value="{!Screening__c[s]}" />
     		</apex:repeat>
     	  </apex:pageBlockSection>
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="Abuser">	    		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Abuser_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	       <apex:pageBlockSection showHeader="true" columns="2" title="Unsafe Area">	    		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Unsafe_Area_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	      <apex:pageBlockSection showHeader="false" columns="1" title="Unsafe Area">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Location_Close_To_Shelter_Prompt}"/>    	    	   	    	    	  	   	   	    	 
+	      </apex:pageBlockSection>  
+	      
+	      <apex:pageBlockSection showHeader="true" columns="1" title="Types Of DV Experienced">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Probing_Questions_Prompt}"/>    	    	   	    	    	  	   	   	    	 	         		             	       	 	      
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Is_There_History_Prompt}"/>    	    	   	    	    	  	   	   	    	 
+	      </apex:pageBlockSection>
+	      <apex:pageBlockSection showHeader="false" columns="2" title="Types Of DV Experienced">	    	       		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Types_of_DV_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	       <apex:pageBlockSection showHeader="false" columns="1" title="Types Of DV Experienced">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Checking_Cell_Prompt}"/>    	    	   	    	    	  	   	   	    	 	         		             	       	 	      
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Pornographic_Prompt}"/>    	    	   	    	    	  	   	   	    	 
+	      </apex:pageBlockSection>
+	      
+	      <apex:pageBlockSection showHeader="true" columns="1" title="Safety and Confidentiality">	
+	      	<apex:outputText escape="false" value="{!$Label.Screening_Imminent_Danger_Prompt}"/>    	    	   	    	    	  	   	   	    	 	         		             	       	 	         	    	     
+	      </apex:pageBlockSection>
+	      
+	      <apex:pageBlockSection showHeader="false" columns="2" title="Safety and Confidentiality">	    	       		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Safety_Confidentiality_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
 	
 	    </apex:pageBlock>
 	    

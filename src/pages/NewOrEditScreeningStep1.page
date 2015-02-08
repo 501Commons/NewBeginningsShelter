@@ -24,9 +24,13 @@
 	      	</apex:pageBlockButtons>
 	
 		  <apex:pageBlockSection showHeader="true" columns="1" title="Caller Info">
-    	    <apex:outputText escape="false" value="{!$Label.Screening_Prompt}"/>
-    	    <apex:inputField value="{!participant.Birthdate}" id="ContactBirthDate"/>
+    	    <apex:outputText escape="false" value="{!$Label.Screening_Prompt}"/>    	    
     	  </apex:pageBlockSection>	
+    	  <apex:pageBlockSection showHeader="false" columns="2" title="Caller Info">    	  	
+    	    <apex:inputField value="{!participant.FirstName}" id="ContactFirstName"/>
+    	    <apex:inputField value="{!participant.LastName}" id="ContactLastName"/>
+    	    <apex:inputField value="{!participant.Birthdate}" id="ContactBirthDate"/>
+    	  </apex:pageBlockSection>
     	  
 	      <apex:pageBlockSection showHeader="false" columns="2" title="Caller Info">	        
 	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Caller_Info_Fields}" var="f"> 
@@ -44,8 +48,25 @@
     	  </apex:pageBlockSection>
     	  <apex:pageBlockSection showHeader="false" columns="1" title="Phone">
     	    <apex:outputText escape="false" value="{!$Label.Screening_Abuser_Phone_Prompt}"/> 
-    	  </apex:pageBlockSection>    	  
-	    </apex:pageBlock>
+    	  </apex:pageBlockSection>   
+    	  
+    	  <apex:pageBlockSection showHeader="true" columns="2" title="Previous Living Situation">	    		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Living_Situation_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      <apex:pageBlockSection showHeader="false" columns="1" title="Previous Living Situation">
+    	    	<apex:outputText escape="false" value="{!$Label.Screening_Time_Up_Prompt}"/> 
+    	    	<apex:outputText escape="false" value="{!$Label.Screening_Family_Friends_Prompt}"/>
+    	  </apex:pageBlockSection>      	      	 
+	      
+	      <apex:pageBlockSection showHeader="true" columns="1" title="Screening">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Purpose_Prompt}"/> 
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Program_Guidelines_Prompt}"/>
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Confidential_Shelter_Prompt}"/>    	    	    	  	   	   	    	 
+	      </apex:pageBlockSection>  
+	    		  
+	    </apex:pageBlock>	    	    
 	    
 	  </apex:form>
 

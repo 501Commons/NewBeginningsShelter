@@ -1,6 +1,21 @@
 public without sharing class ContactTriggerClass {
 	public static void MainEntry (List<Contact> newList, Map<Id, Contact> newMap,
                             			List<Contact> oldList, Map<Id, Contact> oldMap){
+          
+          if (trigger.isBefore) {
+          	if (trigger.isUpdate) {
+          		List<Contact> toUpdate = new List<Contact>();
+          		for (Contact c : newMap.values()) {
+          			if (c.MailingPostalCode != oldMap.get(c.Id).MailingPostalCode ) {
+          				toUpdate.add(c);
+          			}
+          		}
+          		updateRegion(toUpdate);
+          	} else if (trigger.isInsert) {
+	  			updateRegion(newList);
+  			}
+          }
+          
           if (trigger.isAfter) {//After
                 if (trigger.isInsert) {                	
                     updateRelatedObjects(newMap);                                   
@@ -10,6 +25,28 @@ public without sharing class ContactTriggerClass {
                     updateRelatedObjects(oldMap, newMap);
                 }
           } 	                 				
+    }
+    
+    private static String getRegion(String postalCode) {
+    	 Zip_Code_Mapping_Setting__c mapping = Zip_Code_Mapping_Setting__c.getValues(postalCode);
+    	 if (mapping != null) {
+    	 	return mapping.Region__c;
+    	 }
+    	 return null;
+    }
+    
+    private static void updateRegion(List<Contact> contacts) {
+    	for (Contact c : contacts) {
+    		if (!String.isBlank(c.MailingPostalCode)) {
+    			String region = getRegion(c.MailingPostalCode);
+    			if (region != null) {
+    				c.Region__c = region;
+    			}
+    		} else {
+    			System.debug('else branch setting to blank');
+    			c.Region__c = '';
+    		}
+    	}
     }
     
     private static void updateRelatedObjects(Map<Id, Contact> newMap) {
