@@ -85,4 +85,71 @@ private class TestContactTriggerClass {
      	Contact contactUpdated = [select id, Region__c from Contact where id = :contactInserted.Id];
      	System.assertEquals(contactUpdated.Region__c, null);
      }
+     
+     static testMethod void testContactTriggerNumberOfHouseholdMembersInsert() {
+     	// insert HouseHold
+     	npo02__Household__c hh = new npo02__Household__c(name = 'First HouseHold');
+    	insert hh;
+    	
+    	// insert Contact
+    	Contact c = new Contact(LastName='Test', RecordTypeID=partRecTypeId, npo02__Household__c=hh.id);
+    	insert c;
+    	
+    	System.assertEquals(1, [select Number_of_Household_Members__c from npo02__Household__c where id =:hh.id].Number_of_Household_Members__c);           	
+     }
+     
+     
+     static testMethod void testContactTriggerNumberOfHouseholdMembersDelete() {
+		// insert HouseHold
+     	npo02__Household__c hh = new npo02__Household__c(name = 'First HouseHold');
+    	insert hh; 
+    	
+    	//create a batch of Contacts        
+        List<Contact> listOfContacts = new List<Contact>();
+        for (Integer i=0; i<3 ; i++) {
+        	Contact c = new Contact(LastName='Test' + i, RecordTypeID=partRecTypeId, npo02__Household__c=hh.id);
+        	listOfContacts.add(c);
+        }
+        
+        insert listOfContacts;
+        System.assertEquals(3, [select Number_of_Household_Members__c from npo02__Household__c where id =:hh.id].Number_of_Household_Members__c);
+         
+         
+        // delete one of the contacts  
+        delete listOfContacts.get(0);
+        System.assertEquals(2, [select Number_of_Household_Members__c from npo02__Household__c where id =:hh.id].Number_of_Household_Members__c);
+     }
+     
+     static testMethod void testContactTriggerNumberOfHouseholdMembersUpdate() {
+     	// insert HouseHolds
+     	List<npo02__Household__c> hhList = new List<npo02__Household__c>();
+     	
+     	for (Integer i=0; i<3; i++) {
+     		npo02__Household__c hh = new npo02__Household__c(name = 'HouseHold #' + i);
+     		hhList.add(hh);
+     	}
+    	insert hhList; 
+    	
+    	
+    	//create a batch of Contacts        
+        List<Contact> listOfContacts = new List<Contact>();
+        for (Integer i=0; i<3 ; i++) {
+        	Contact c = new Contact(LastName='Test' + i, RecordTypeID=partRecTypeId, npo02__Household__c=hhList.get(i).id);
+        	listOfContacts.add(c);
+        }
+        insert listOfContacts;
+        
+        // move all the Contacts to HouseHold #3 
+        //update - move all remaining contacts to new household
+    	for (Contact c: listOfContacts) {
+    		c.npo02__Household__c = hhList.get(2).id;
+    	}
+    	update listOfContacts;
+        
+        System.assertEquals(3, [select Number_of_Household_Members__c from npo02__Household__c where id =:hhList.get(2).id].Number_of_Household_Members__c);
+        
+        System.assert([select Number_of_Household_Members__c from npo02__Household__c where id =:hhList.get(0).id].isEmpty());
+        System.assert([select Number_of_Household_Members__c from npo02__Household__c where id =:hhList.get(1).id].isEmpty());
+     	
+     }
 }

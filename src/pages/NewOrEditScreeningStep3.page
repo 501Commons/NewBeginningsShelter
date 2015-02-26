@@ -25,9 +25,9 @@
 	      </apex:pageBlockButtons>
 	
     	  <apex:pageBlockSection showHeader="true" columns="1" title="Household">
-    	    <apex:outputText escape="false" value="{!$Label.Screening_List_Children_Prompt}" />
-    	    <apex:outputText escape="false" value="{!$Label.Screening_Childrens_Advocates_Prompt}" />
+    	    <apex:outputText escape="false" value="{!$Label.Screening_List_Children_Prompt}" />    	   
     	    <apex:inputField value="{!Screening__c.Total_Number_of_Children_in_HH__c}"/>
+    	     <apex:outputText escape="false" value="{!$Label.Screening_Childrens_Advocates_Prompt}" />
     	  </apex:pageBlockSection>
     	  
     	  <apex:pageBlockSection showHeader="true" columns="2" title="List All Children">  

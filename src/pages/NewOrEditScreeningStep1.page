@@ -37,6 +37,10 @@
         		<apex:inputField value="{!Screening__c[f]}" />
     		</apex:repeat>
 	      </apex:pageBlockSection>
+	      
+	      <apex:pageBlockSection showHeader="false" columns="1" title="Prev Screening">
+	      	<apex:outputText escape="false" value="{!$Label.Screening_Previous_Screening_Prompt}"/>	      	
+	      </apex:pageBlockSection>
 	      	       
 	      <apex:pageBlockSection showHeader="true" columns="1" title="Phone">
     	    <apex:outputText escape="false" value="{!$Label.Screening_Phone_Prompt}"/>
@@ -65,6 +69,36 @@
    	    	<apex:outputText escape="false" value="{!$Label.Screening_Program_Guidelines_Prompt}"/>
    	    	<apex:outputText escape="false" value="{!$Label.Screening_Confidential_Shelter_Prompt}"/>    	    	    	  	   	   	    	 
 	      </apex:pageBlockSection>  
+	      
+	       <apex:pageBlockSection showHeader="false" columns="2" title="Comfortable Living in this type of HH">	    		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Info_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	      <apex:pageBlockSection showHeader="false" columns="1" title="Safe Option Screening Prompt">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Safe_Option_Prompt}"/>    	    		    	    	  	   	   	    	
+	      </apex:pageBlockSection>
+	      
+	        <apex:pageBlockSection showHeader="false" columns="2" title="Difficulties in accomodations">	    		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Info_pt2_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	       <apex:pageBlockSection showHeader="false" columns="1" title="Children chores prompt">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Children_Chores_Prompt}"/>    	    		    	    	  	   	   	    	
+	      </apex:pageBlockSection>
+	      
+	       <apex:pageBlockSection showHeader="false" columns="2" title="Car Safety Fields">	    		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Info_pt3_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	       <apex:pageBlockSection showHeader="false" columns="1" title="Car Safety Prompt">	    		             	       	 	      	
+   	    	<apex:outputText escape="false" value="{!$Label.Screening_Car_Safety_Prompt}"/>    	    		    	    	  	   	   	    	
+	      </apex:pageBlockSection>
 	    		  
 	    </apex:pageBlock>	    	    
 	    

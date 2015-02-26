@@ -36,6 +36,10 @@
     		</apex:repeat>
     	  </apex:pageBlockSection>
     	  
+    	  <apex:pageBlockSection showHeader="false" columns="1" title="Suggested Questions Prompt">
+    	    <apex:outputText escape="false" value="{!$Label.Screening_Suggested_Questions_Prompt}"/>
+    	  </apex:pageBlockSection>
+    	  
     	  <apex:pageBlockSection showHeader="true" columns="2" title="Abuser">	    		             	       	 
 	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Abuser_Fields}" var="s"> 
         		<apex:inputField value="{!Screening__c[s]}" />     		
@@ -73,6 +77,16 @@
 	      
 	      <apex:pageBlockSection showHeader="false" columns="2" title="Safety and Confidentiality">	    	       		             	       	 
 	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Safety_Confidentiality_Fields}" var="s"> 
+        		<apex:inputField value="{!Screening__c[s]}" />     		
+    		</apex:repeat>    		    		  	    	  
+	      </apex:pageBlockSection>
+	      
+	       <apex:pageBlockSection showHeader="false" columns="1" title="Safety and Conf pt.2">	
+	      	<apex:outputText escape="false" value="{!$Label.Screening_Out_Of_State_Prompt}"/>    	    	   	    	    	  	   	   	    	 	         		             	       	 	         	    	     
+	      </apex:pageBlockSection>
+	      
+	      <apex:pageBlockSection showHeader="false" columns="2" title="Safety and Confidentiality">	    	       		             	       	 
+	      	<apex:repeat value="{!$ObjectType.Screening__c.FieldSets.Screening_Safety_Conf_pt2_Fields}" var="s"> 
         		<apex:inputField value="{!Screening__c[s]}" />     		
     		</apex:repeat>    		    		  	    	  
 	      </apex:pageBlockSection>

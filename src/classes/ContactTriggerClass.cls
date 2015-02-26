@@ -53,8 +53,7 @@ public without sharing class ContactTriggerClass {
     	//for all contacts inserted check their record type and get their household
     	Set<Id> householdSet = new Set<Id>();
     	for (Contact c : newMap.values()) {
-    		if (c.Record_Type_Name__c == 'Child' 
-    				&& c.npo02__Household__c <> null) {
+    		if (c.npo02__Household__c <> null) {
     			householdSet.add(c.npo02__Household__c);
     		}
     	}
@@ -80,27 +79,45 @@ public without sharing class ContactTriggerClass {
     * Update households with the number of children
     */
     private static void updateHouseholds(Set<Id> households) {
-    	Map<Id, npo02__Household__c> householdsToUpdate = new Map<Id, npo02__Household__c> 
-    														([select id, Number_of_Children__c from npo02__Household__c 
-    															where id in :households]);    	
-    	AggregateResult[] children = [select npo02__Household__c, count(id) 
-    								from Contact where Record_Type_Name__c='Child' 
-    								and npo02__Household__c in :households group by npo02__Household__c];
+    	List<npo02__Household__c> householdsToUpdate = [select id, Number_of_Children__c, Number_of_Household_Members__c
+    													from npo02__Household__c 
+    													where id in :households];    	
+    	List<Contact> contacts = [select id, npo02__Household__c, Record_Type_Name__c
+    								from Contact where npo02__Household__c in :households];
         
         Map<Id, Integer> householdChildrenMap = new Map<Id, Integer>();
+        Map<Id, Integer> householdMembersMap = new Map<Id, Integer>();
         
-		for (AggregateResult ar : children)  {	
-		   Id hhId = (Id)ar.get('npo02__Household__c');	
-		   npo02__Household__c hh = householdsToUpdate.get(hhId); 				    
-		   householdChildrenMap.put(hhId,(Integer)ar.get('expr0'));
+		for (Contact c : contacts)  {	
+		   Id hhId = c.npo02__Household__c;	
+		   String record_type = c.Record_Type_Name__c;
+		   
+		   if (householdChildrenMap.containsKey(hhId)) {
+		   	// the houseHold is already included in map
+		   	householdMembersMap.put(hhId, householdMembersMap.get(hhId) + 1);
+		   	if (record_type.equals('Child')) {
+		   		householdChildrenMap.put(hhId, householdChildrenMap.get(hhId) + 1);
+		   	}
+		   		
+		   } else {
+		   	// the houseHold is newly found
+		   	householdMembersMap.put(hhId, 1);
+		   	if (record_type.equals('Child')) {
+		   		householdChildrenMap.put(hhId, 1);
+		   	} else {
+		   		householdChildrenMap.put(hhId, 0);
+		   	}
+		   }
 		}
-        for (npo02__Household__c household : householdsToUpdate.values()){           
+        for (npo02__Household__c household : householdsToUpdate){           
             if (householdChildrenMap.get(household.Id)==null) {
                 household.Number_of_Children__c = 0;
+                household.Number_of_Household_Members__c = 0;
             } else {
                 household.Number_of_Children__c = householdChildrenMap.get(household.Id);
+                household.Number_of_Household_Members__c = householdMembersMap.get(household.Id);
             }
         }
-		update householdsToUpdate.values(); 								
+		update householdsToUpdate; 								
     }
 }
