@@ -194,12 +194,6 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
         <picklist>
             <controllingField>Goals_Week__c</controllingField>
             <picklistValues>
-                <fullName>3 Docs:  Important docs obtained?</fullName>
-                <controllingFieldValues>3</controllingFieldValues>
-                <controllingFieldValues>4</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>1 Docs: Obtain important: (Pic ID, etc.)</fullName>
                 <controllingFieldValues>1</controllingFieldValues>
                 <controllingFieldValues>2</controllingFieldValues>
@@ -209,6 +203,12 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <fullName>1 Docs: Req funding for important docs</fullName>
                 <controllingFieldValues>1</controllingFieldValues>
                 <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Docs:  Important docs obtained?</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -224,6 +224,11 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <controllingFieldValues>7</controllingFieldValues>
                 <controllingFieldValues>8</controllingFieldValues>
                 <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 DV Education: Week 1 (DV 101)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -257,15 +262,11 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>1 DV Education: Week 1 (DV 101)</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Finance: Actively seeking employment</fullName>
+                <fullName>0 Finance:  SS Plan - Edu, Job, SSDI,etc</fullName>
                 <controllingFieldValues>10</controllingFieldValues>
                 <controllingFieldValues>11</controllingFieldValues>
                 <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
                 <controllingFieldValues>3</controllingFieldValues>
                 <controllingFieldValues>4</controllingFieldValues>
                 <controllingFieldValues>5</controllingFieldValues>
@@ -273,12 +274,6 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <controllingFieldValues>7</controllingFieldValues>
                 <controllingFieldValues>8</controllingFieldValues>
                 <controllingFieldValues>9</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Finance: Barriers to Self-Suffncy Plan</fullName>
-                <controllingFieldValues>3</controllingFieldValues>
-                <controllingFieldValues>4</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -303,11 +298,10 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>0 Finance:  SS Plan - Edu, Job, SSDI,etc</fullName>
+                <fullName>3 Finance: Actively seeking employment</fullName>
                 <controllingFieldValues>10</controllingFieldValues>
                 <controllingFieldValues>11</controllingFieldValues>
                 <controllingFieldValues>12</controllingFieldValues>
-                <controllingFieldValues>2</controllingFieldValues>
                 <controllingFieldValues>3</controllingFieldValues>
                 <controllingFieldValues>4</controllingFieldValues>
                 <controllingFieldValues>5</controllingFieldValues>
@@ -315,6 +309,12 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <controllingFieldValues>7</controllingFieldValues>
                 <controllingFieldValues>8</controllingFieldValues>
                 <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Finance: Barriers to Self-Suffncy Plan</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -326,11 +326,6 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
             <picklistValues>
                 <fullName>1 Housing: Complete Housing Review</fullName>
                 <controllingFieldValues>1</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2 Housing: Fam -  FHC appt.(Date &amp; loc?)</fullName>
-                <controllingFieldValues>2</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -360,7 +355,17 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>2 Housing: Fam -  FHC appt.(Date &amp; loc?)</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>2 Housing: Go over unfinished apps</fullName>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2 Housing: Tips/Barriers/Ways to address</fullName>
                 <controllingFieldValues>2</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -393,7 +398,8 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>2 Housing: Tips/Barriers/Ways to address</fullName>
+                <fullName>1 Legal: Explain Legal Resources/Options</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
                 <controllingFieldValues>2</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -405,11 +411,6 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
             <picklistValues>
                 <fullName>2 Legal: Refer to Legal.Clinic/ LA / POA</fullName>
                 <controllingFieldValues>2</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Safety: Community voicemail needs</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -429,6 +430,17 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>1 Safety: Community voicemail needs</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Safety: Informal Supports Identified</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>1 Safety: Revisit Safety Plan</fullName>
                 <controllingFieldValues>1</controllingFieldValues>
                 <default>false</default>
@@ -445,6 +457,66 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
             </picklistValues>
             <picklistValues>
                 <fullName>4 Survey: Verify TIS survey received</fullName>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>0 Svcs: DV support groups / Support plan</fullName>
+                <controllingFieldValues>10</controllingFieldValues>
+                <controllingFieldValues>11</controllingFieldValues>
+                <controllingFieldValues>12</controllingFieldValues>
+                <controllingFieldValues>2</controllingFieldValues>
+                <controllingFieldValues>3</controllingFieldValues>
+                <controllingFieldValues>4</controllingFieldValues>
+                <controllingFieldValues>5</controllingFieldValues>
+                <controllingFieldValues>6</controllingFieldValues>
+                <controllingFieldValues>7</controllingFieldValues>
+                <controllingFieldValues>8</controllingFieldValues>
+                <controllingFieldValues>9</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Fam - Explain CA&apos;s role</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Fam - Children&apos;s intake</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: DV Support Grps (Questions,etc)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Remember appointments (Planner)</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 Svcs: Revisit welcome folder</fullName>
+                <controllingFieldValues>1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Svcs: EXIT prep - Date &amp; expectations</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 Svcs: Guidelines / Check-in/ Progress?</fullName>
+                <controllingFieldValues>3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4 Svcs: EXIT prep- Day One screenings</fullName>
+                <controllingFieldValues>4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4 Svcs: EXIT prep- Packet, shelter #s</fullName>
                 <controllingFieldValues>4</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -469,71 +541,11 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>0 Svcs: DV support groups / Support plan</fullName>
-                <controllingFieldValues>10</controllingFieldValues>
-                <controllingFieldValues>11</controllingFieldValues>
-                <controllingFieldValues>12</controllingFieldValues>
-                <controllingFieldValues>2</controllingFieldValues>
-                <controllingFieldValues>3</controllingFieldValues>
-                <controllingFieldValues>4</controllingFieldValues>
-                <controllingFieldValues>5</controllingFieldValues>
-                <controllingFieldValues>6</controllingFieldValues>
-                <controllingFieldValues>7</controllingFieldValues>
-                <controllingFieldValues>8</controllingFieldValues>
-                <controllingFieldValues>9</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Svcs: DV Support Grps (Questions,etc)</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Svcs: EXIT prep - Date &amp; expectations</fullName>
-                <controllingFieldValues>3</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4 Svcs: EXIT prep- Day One screenings</fullName>
-                <controllingFieldValues>4</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4 Svcs: EXIT prep- Packet, shelter #s</fullName>
-                <controllingFieldValues>4</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Svcs: Fam - Children&apos;s intake</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Svcs: Fam - Explain CA&apos;s role</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Svcs: Guidelines / Check-in/ Progress?</fullName>
-                <controllingFieldValues>3</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Svcs: Remember appointments (Planner)</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>5 Svcs:  Revisit goals, program format</fullName>
                 <controllingFieldValues>11</controllingFieldValues>
                 <controllingFieldValues>5</controllingFieldValues>
                 <controllingFieldValues>7</controllingFieldValues>
                 <controllingFieldValues>9</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1 Svcs: Revisit welcome folder</fullName>
-                <controllingFieldValues>1</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3963,7 +3975,15 @@ Program_Enrollment__r.Child__r.FirstName + &apos; &apos; +  Program_Enrollment__
                 <default>false</default>
             </values>
             <values>
+                <fullName>1 Legal%3A Explain Legal Resources%2FOptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>1 Safety%3A Community voicemail needs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1 Safety%3A Informal Supports Identified</fullName>
                 <default>false</default>
             </values>
             <values>

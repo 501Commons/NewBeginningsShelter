@@ -422,10 +422,20 @@
             <field>Comfortable_Living_in_this_Type_of_House__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
+        <label>SCREENING</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Screening_Info_pt2_Fields</fullName>
+        <description>Caller Info Section #4, part 2. DO NOT SHOW TITLE. Fields to be used on the Visualforce page to create a new screening.</description>
         <displayedFields>
             <field>Difficulties_in_Accommodation__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
+        <label>SCREENING pt2</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Screening_Info_pt3_Fields</fullName>
+        <description>Caller Info Section #4 - pt 3.  DO NOT SHOW TITLE. Fields to be used on the Visualforce page to create a new screening.</description>
         <displayedFields>
             <field>Vehicle_Driven_to_Shelter__c</field>
             <isRequired>false</isRequired>
@@ -434,7 +444,7 @@
             <field>Vehicle_Registered_To__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
-        <label>SCREENING</label>
+        <label>SCREENING pt3</label>
     </fieldSets>
     <fieldSets>
         <fullName>Screening_Interpreter_Fields</fullName>
@@ -665,20 +675,8 @@
         <label>MEDICAL &amp; SPECIAL NEEDS</label>
     </fieldSets>
     <fieldSets>
-        <fullName>Screening_Safety_Confidentiality_Fields</fullName>
-        <description>DV History Section #5 - Fields to be used on the Visualforce page to create a new screening.</description>
-        <displayedFields>
-            <field>Allowed_to_Leave_Home_Alone__c</field>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Additional_Screening_Situation_Info__c</field>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Possible_Abuser_Actions_Once_Left__c</field>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        <fullName>Screening_Safety_Conf_pt2_Fields</fullName>
+        <description>DV History Section #5 - pt2 - DO NOT SHOW TITLE - Fields to be used on the Visualforce page to create a new screening.</description>
         <displayedFields>
             <field>Reason_for_Choosing_WA_Stat__c</field>
             <isRequired>false</isRequired>
@@ -695,6 +693,23 @@
             <field>Abuser_Contact_with_Caller_s_WA_Contacts__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
+        <label>SAFETY &amp; CONF pt2</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Screening_Safety_Confidentiality_Fields</fullName>
+        <description>DV History Section #5 - Fields to be used on the Visualforce page to create a new screening.</description>
+        <displayedFields>
+            <field>Allowed_to_Leave_Home_Alone__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Possible_Abuser_Actions_Once_Left__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Additional_Screening_Situation_Info__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>SAFETY &amp; CONFIDENTIALITY</label>
     </fieldSets>
     <fieldSets>
@@ -705,15 +720,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Reason_For_Denial__c</field>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Reason_for_Denial_Explaination__c</field>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Referred_Caller_To__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_For_Denial__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
@@ -721,7 +732,19 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Reason_for_Denial_Explaination__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Caller_s_Last_Check_In__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_Screening_Incomplete__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Best_Time_to_Call_Back__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>SCREENING STATUS</label>
@@ -1744,7 +1767,7 @@
         <description>Is the caller comfortable living in this type of household?</description>
         <externalId>false</externalId>
         <inlineHelpText>Is the caller comfortable living in this type of household?  If no, screening stops.</inlineHelpText>
-        <label>Comfortable with this Type of Household</label>
+        <label>Comfortable with this Type of Household?</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -2275,9 +2298,10 @@
     </fields>
     <fields>
         <fullName>Primary_Abuser_Other__c</fullName>
-        <description>Other relationship of Abuser to Caller.</description>
+        <description>If &quot;Other&quot; was selected for Primary Abuser, explain</description>
         <externalId>false</externalId>
-        <label>Primary Abuser - Other</label>
+        <inlineHelpText>If &quot;Other&quot; was selected for Primary Abuser, explain</inlineHelpText>
+        <label>If Other, Explain</label>
         <length>100</length>
         <required>false</required>
         <type>Text</type>
@@ -2347,7 +2371,7 @@
         <description>Reason that the caller was not a good fit for Shelter.</description>
         <externalId>false</externalId>
         <inlineHelpText>Reason that the caller was not a good fit for Shelter.</inlineHelpText>
-        <label>Reason For Denial</label>
+        <label>Reason for Denial</label>
         <picklist>
             <picklistValues>
                 <fullName>Unsafe area</fullName>
@@ -2380,6 +2404,15 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Screening_Incomplete__c</fullName>
+        <description>If the screening cannot be finished, enter a reason why so that the next Advocate will know.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the screening cannot be finished, enter a reason why so that the next Advocate will know.</inlineHelpText>
+        <label>Explain Why Incomplete</label>
+        <required>false</required>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Reason_for_Calling_NB_Today__c</fullName>
@@ -2527,8 +2560,9 @@
     </fields>
     <fields>
         <fullName>Screening_Status__c</fullName>
-        <description>Screening Status</description>
+        <description>Accepted = Accepted into Shelter pending arrival.  Pending = Their screening is complete but you want to consult a colleague.  Not Completed = Screening needs to be completed. Denied = Their screening was denied.  Accepted No Show = They were accepted but did not show up to Shelter.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Accepted = Accepted into Shelter pending arrival.  Pending = Their screening is complete but you want to consult a colleague.  Not Completed = Screening needs to be completed. Denied = Their screening was denied.  Accepted No Show = They were accepted but</inlineHelpText>
         <label>Screening Status</label>
         <picklist>
             <picklistValues>
@@ -2829,6 +2863,7 @@
         <columns>Total_of_Children_Coming_to_Shelter__c</columns>
         <columns>Screening_Advocate__c</columns>
         <columns>Screening_Call_Origin__c</columns>
+        <columns>Reason_for_Calling_NB_Today__c</columns>
         <columns>Last_Permanent_Address_City__c</columns>
         <columns>Brief_History_of_DV__c</columns>
         <columns>Safe_Phone_Number_at_Screening__c</columns>
@@ -2845,6 +2880,7 @@
     <listViews>
         <fullName>Shelter_Awaiting_Arrival</fullName>
         <columns>Participant__c</columns>
+        <columns>NAME</columns>
         <columns>Total_of_Children_Coming_to_Shelter__c</columns>
         <columns>Screening_Date__c</columns>
         <columns>Expected_Arrival_Date__c</columns>
@@ -2855,7 +2891,6 @@
         <columns>Pickup_Spot_Given_to_Caller__c</columns>
         <columns>Vehicle_Driven_to_Shelter__c</columns>
         <columns>Screening_Advocate__c</columns>
-        <columns>NAME</columns>
         <columns>Screening_Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -2868,7 +2903,7 @@
             <operation>equals</operation>
             <value>Screening__c.Shelter</value>
         </filters>
-        <label>Shelter - Awaiting Arrival</label>
+        <label>Shelter - Accepted</label>
     </listViews>
     <listViews>
         <fullName>Shelter_Denied</fullName>
@@ -2897,14 +2932,15 @@
     </listViews>
     <listViews>
         <fullName>Shelter_Incomplete_Screenings</fullName>
-        <columns>Participant__c</columns>
-        <columns>Total_of_Children_Coming_to_Shelter__c</columns>
-        <columns>Screening_Date__c</columns>
-        <columns>Screening_Time__c</columns>
         <columns>Screening_Status__c</columns>
+        <columns>Participant__c</columns>
+        <columns>Screening_Date__c</columns>
+        <columns>NAME</columns>
+        <columns>Reason_Screening_Incomplete__c</columns>
+        <columns>Screening_Time__c</columns>
         <columns>Screening_Call_Origin__c</columns>
         <columns>Screening_Advocate__c</columns>
-        <columns>NAME</columns>
+        <columns>Total_of_Children_Coming_to_Shelter__c</columns>
         <columns>Safe_Phone_Number_at_Screening__c</columns>
         <columns>Brief_History_of_DV__c</columns>
         <filterScope>Everything</filterScope>
@@ -2922,6 +2958,7 @@
     </listViews>
     <listViews>
         <fullName>Shelter_No_Shows</fullName>
+        <columns>Screening_Status__c</columns>
         <columns>Participant__c</columns>
         <columns>Total_of_Children_Coming_to_Shelter__c</columns>
         <columns>Screening_Date__c</columns>
@@ -2932,7 +2969,6 @@
         <columns>Safety_Plan_until_Arrival__c</columns>
         <columns>Screening_Advocate__c</columns>
         <columns>NAME</columns>
-        <columns>Screening_Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Screening_Status__c</field>

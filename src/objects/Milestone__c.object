@@ -56,11 +56,20 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Date_Milestone_Met__c</fullName>
+        <fullName>Date_Milestone_Generated__c</fullName>
         <description>This is the Date of Service from the Service Participation.</description>
         <externalId>false</externalId>
         <formula>Service_Participation__r.Date_of_Service__c</formula>
         <inlineHelpText>This is the Date of Service from the Service Participation.</inlineHelpText>
+        <label>Date Milestone Generated</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Milestone_Met__c</fullName>
+        <description>This is the date the milestone was met, it will be set by advocates manually.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the date the milestone was met, it will be set by advocates manually.</inlineHelpText>
         <label>Date Milestone Met</label>
         <required>false</required>
         <type>Date</type>

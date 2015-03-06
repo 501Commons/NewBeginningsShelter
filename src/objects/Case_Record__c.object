@@ -38,6 +38,35 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>CRMC_Action_Grid_Defaults</fullName>
+        <description>Default Field Sets for Case Records within Action grid</description>
+        <displayedFields>
+            <field>Contact__r.MasterRecordId</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contact__r.OwnerId</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contact__r.RecordTypeId</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contact__r.Gender__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Household__r.Name</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Intake_Date__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>CRMC_Action_Grid_Defaults</label>
+    </fieldSets>
     <fields>
         <fullName>Able_to_Address_Behav_Concerns__c</fullName>
         <externalId>false</externalId>
@@ -441,7 +470,7 @@
         <formula>CASE (Arrival_Status_Flag__c, 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsY&quot;,&quot;Red&quot;), 
 1,IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;),
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;))</formula>
-        <label>Arrival Status</label>
+        <label>Arrival Checklist</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -1492,7 +1521,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green
 1,IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;), 
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Exit Status</label>
+        <label>Exit Checklist</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -1599,7 +1628,7 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green
         <formula>CASE (Forms_Status_Flag__c, 0, IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsY&quot;,&quot;Red&quot;),
 1,IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;),
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;))</formula>
-        <label>Forms Status</label>
+        <label>Forms Checklist</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -2320,6 +2349,17 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Income_Level__c</fullName>
+        <description>Field to store the Income Level. This will be auto-populated by trigger based on number of household members and the Monthly Gross Income at Intake.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field to store the Income Level. This will be auto-populated by trigger based on number of household members and the Monthly Gross Income at Intake.</inlineHelpText>
+        <label>Income Level</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Individual_advocacy_at_shelter__c</fullName>
         <description>How does the participant rate the individual advocacy services she received at shelter?</description>
         <externalId>false</externalId>
@@ -2859,6 +2899,18 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green
         <summaryForeignKey>ServiceParticipation__c.Case_Record__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Num_of_People_in_HH_at_Intake__c</fullName>
+        <description>Number of people in the household at Intake.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of people in the household at Intake.</inlineHelpText>
+        <label>Num of People in HH at Intake</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Number_of_Days_at_Shelter__c</fullName>
@@ -4882,37 +4934,6 @@ if (INCLUDES(Contact__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Viet
     </fields>
     <label>Case Record</label>
     <listViews>
-        <fullName>All</fullName>
-        <columns>Contact__c</columns>
-        <columns>Advocate__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Parenting_Group_Service_Hours__c</columns>
-        <columns>Parenting_Skills_Service_Hours__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Parenting_Group_Service_Hours__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </filters>
-        <label>Kiana Parenting Group Participants</label>
-    </listViews>
-    <listViews>
-        <fullName>CAP_Cases_Ready_for_Intake</fullName>
-        <columns>NAME</columns>
-        <columns>Advocate__c</columns>
-        <columns>Date_Assigned__c</columns>
-        <columns>Intake_Advocate__c</columns>
-        <columns>Intake_Date__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Status__c</field>
-            <operation>equals</operation>
-            <value>Intake to be completed</value>
-        </filters>
-        <label>CAP Cases - Ready for Intake</label>
-    </listViews>
-    <listViews>
         <fullName>Goals_Not_Met</fullName>
         <columns>NAME</columns>
         <columns>Contact__c</columns>
@@ -4956,21 +4977,26 @@ if (INCLUDES(Contact__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Viet
         <label>Missing Intake (Arrival) Date</label>
     </listViews>
     <listViews>
-        <fullName>Rachel_Children_s_Program</fullName>
-        <columns>NAME</columns>
-        <columns>Children_Service_Hours__c</columns>
-        <columns>Children_Service_Participations__c</columns>
+        <fullName>Shelter_Active_Children_s_Cases</fullName>
         <columns>Contact__c</columns>
-        <columns>Participant_Id__c</columns>
+        <columns>Household__c</columns>
+        <columns>NAME</columns>
         <columns>Intake_Date__c</columns>
+        <columns>Formula_Age__c</columns>
+        <columns>Race_Ethnicity__c</columns>
         <columns>Advocate__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Contact__c</field>
-            <operation>equals</operation>
-            <value>Children&apos;s Name</value>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Intake could not be completed,Exited,Inactive</value>
         </filters>
-        <label>Rachel Children&apos;s Program</label>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case_Record__c.Shelter_Child</value>
+        </filters>
+        <label>Shelter - Active Children&apos;s Cases</label>
     </listViews>
     <listViews>
         <fullName>Shelter_Active_Residents</fullName>
@@ -5021,6 +5047,55 @@ if (INCLUDES(Contact__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Viet
             <value>Case_Record__c.Shelter</value>
         </filters>
         <label>Shelter - All Case Records</label>
+    </listViews>
+    <listViews>
+        <fullName>Shelter_Exited_Children_s_Cases</fullName>
+        <columns>Contact__c</columns>
+        <columns>Household__c</columns>
+        <columns>NAME</columns>
+        <columns>Intake_Date__c</columns>
+        <columns>Exit_Date__c</columns>
+        <columns>Formula_Age__c</columns>
+        <columns>Advocate__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Exited</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case_Record__c.Shelter_Child</value>
+        </filters>
+        <label>Shelter - Exited Children&apos;s Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>Shelter_Exited_Residents</fullName>
+        <columns>NAME</columns>
+        <columns>Contact__c</columns>
+        <columns>Status__c</columns>
+        <columns>Reason_for_Exit__c</columns>
+        <columns>Exit_Status__c</columns>
+        <columns>Forms_Status__c</columns>
+        <columns>Intake_Date__c</columns>
+        <columns>Exit_Date__c</columns>
+        <columns>Number_of_Days_at_Shelter__c</columns>
+        <columns>Exit_Advocate__c</columns>
+        <columns>Goals_Not_Met__c</columns>
+        <columns>Number_of_Outcomes_Met__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case_Record__c.Shelter</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Exited</value>
+        </filters>
+        <label>Shelter - Exited Residents</label>
     </listViews>
     <nameField>
         <label>Case Record Name</label>
@@ -14158,6 +14233,7 @@ if (INCLUDES(Contact__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Viet
         <customTabListAdditionalFields>Exit_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Screening__c</customTabListAdditionalFields>
         <listViewButtons>Generate_Bed_Nights</listViewButtons>
+        <listViewButtons>crmc_Grid</listViewButtons>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATED_DATE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
@@ -14171,6 +14247,7 @@ if (INCLUDES(Contact__r.Primary_Language__c, &quot;Vietnamese&quot;), &quot;Viet
         <searchResultsAdditionalFields>Intake_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Exit_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Advocate__c</searchResultsAdditionalFields>
+        <searchResultsCustomButtons>crmc_Grid</searchResultsCustomButtons>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
@@ -14300,5 +14377,16 @@ window.location.reload();</url>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
         <url>https://cs15.salesforce.com/00Oe0000000bBh3?pv0={!Case_Record__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>crmc_Grid</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ActionGrid</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>(function (e,t,n){var r=document.getElementsByTagName(&quot;HEAD&quot;).item(0),i=document.createElement(&quot;script&quot;);i.type=&quot;text/javascript&quot;,r.appendChild(i),i.onload=function(){GridButton.showInGrid(e,t)},i.src=&quot;/resource/&quot;+n+&quot;gridbutton?ts=&quot;+(new Date).getTime()}(&quot;Case_Record__c&quot;, {!GETRECORDIDS( $ObjectType.Case_Record__c)}, &quot;CRMC_PP__&quot;));</url>
     </webLinks>
 </CustomObject>

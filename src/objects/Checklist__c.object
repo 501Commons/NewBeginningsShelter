@@ -121,7 +121,7 @@ ISBLANK(Give_schedule_planner_date__c),  ISBLANK(Give_Schedule_Planner_Advocate_
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;),
 
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;)))</formula>
-        <label>Arrival Status</label>
+        <label>Arrival Checklist</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -413,7 +413,7 @@ ISBLANK(DSHS_Feedback_Survey_Date__c)
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;), 
 
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;)))</formula>
-        <label>Exit Status</label>
+        <label>Exit Checklist</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -478,7 +478,7 @@ ISBLANK(GAIN_SS_Form_Date__c), ISBLANK(GAIN_SS_Form_Advocate__c)),
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yellow&quot;),
 
 IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000GmsQ&quot;,&quot;Green&quot;)))</formula>
-        <label>Forms Status</label>
+        <label>Forms Checklist</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -910,11 +910,13 @@ IMAGE(&quot;/servlet/servlet.FileDownload?file=015e0000000Gmsa&quot;,&quot;Yello
     </listViews>
     <listViews>
         <fullName>Checklist_Statu</fullName>
-        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
         <columns>Case_Record__c</columns>
         <columns>Participant_Name__c</columns>
+        <columns>NAME</columns>
         <columns>Arrival_Status__c</columns>
         <columns>Forms_Status__c</columns>
+        <columns>Exit_Status__c</columns>
         <filterScope>Everything</filterScope>
         <label>Checklist Status</label>
     </listViews>
