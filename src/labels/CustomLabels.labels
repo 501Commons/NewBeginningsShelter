@@ -38,7 +38,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>21: Checking Cell Screening Prompt</shortDescription>
-        <value>&lt;B&gt;Example:&lt;/B&gt;&lt;I&gt; Checking cell, publicly harassing, opening mail, showing up at work&lt;/I&gt;</value>
+        <value>&lt;B&gt;Example:&lt;/B&gt;&lt;I&gt; Monitoring/Stalking: Checking cell, publicly harassing, opening mail, showing up at work&lt;/I&gt;</value>
     </labels>
     <labels>
         <fullName>Screening_Children_Chores_Prompt</fullName>
@@ -137,7 +137,7 @@ If they don&apos;t meet the criteria, refer to another shelter and/or resources.
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>20: Is There a History of Prompt</shortDescription>
-        <value>&quot;Is there a history of…&quot;</value>
+        <value>&lt;B&gt;&quot;Is there a history of…&quot;&lt;/B&gt;</value>
     </labels>
     <labels>
         <fullName>Screening_List_Children_Prompt</fullName>
@@ -249,7 +249,7 @@ If they don&apos;t meet the criteria, refer to another shelter and/or resources.
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>22: Pornographic Screening Prompt</shortDescription>
-        <value>&lt;B&gt;Example: &lt;/B&gt;&lt;I&gt; Manipulated or forced to view pornographic material or to participate in pornographic type activities&lt;/I&gt;</value>
+        <value>&lt;B&gt;Example: &lt;/B&gt;&lt;I&gt; Unwanted Sexual Behaviour: Manipulated or forced to view pornographic material or to participate in pornographic type activities&lt;/I&gt;</value>
     </labels>
     <labels>
         <fullName>Screening_Previous_Screening_Prompt</fullName>

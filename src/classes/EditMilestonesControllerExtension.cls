@@ -6,6 +6,8 @@ public without sharing class EditMilestonesControllerExtension {
 	private Id servPartId; 
 	private ServiceParticipation__c sp;
 	private List<Milestone__c> milestones {get; private set;} 	
+	private boolean saveComplete = false;
+	public static Integer PAGE_SIZE = 15;
         
     public EditMilestonesControllerExtension(ApexPages.StandardSetController stdController) {
       servPartId = ApexPages.currentPage().getParameters().get('id');
@@ -17,10 +19,10 @@ public without sharing class EditMilestonesControllerExtension {
             if(setCon == null) {
                 setCon = new ApexPages.StandardSetController(Database.getQueryLocator(
                     [SELECT id, Name, Status__c, Milestone_NameFormula__c, Service_Participation__c, Outcome__c,
-                    		DescriptionFormula__c, Contract_Name__c 
+                    		DescriptionFormula__c, Contract_Name__c, Date_Milestone_Met__c 
                     		FROM Milestone__c 
                     		where Service_Participation__c=:servPartId limit 200]));
-                setCon.setPageSize(10);    		
+                setCon.setPageSize(PAGE_SIZE);    		
             }
             return setCon;
         }
@@ -48,8 +50,13 @@ public without sharing class EditMilestonesControllerExtension {
     	if(pageNumber!= 1) {
 			setCon.setPageNumber(pageNumber - 1);
 			setCon.next();
-		}    	   	
+		}    	
+		saveComplete = true;   	
     }    
+    
+    public Boolean getSaveComplete() {
+    	return saveComplete;
+    }
     
     public Boolean hasNext {
         get {
@@ -65,11 +72,18 @@ public without sharing class EditMilestonesControllerExtension {
     }     
   
     public void previous() {
+    	saveComplete = false;
         setCon.previous();
     }
   
     public void next() {
+    	saveComplete = false;
         setCon.next();
+    }
+    
+    public PageReference clearMsg() {    	
+    	saveComplete = false;
+    	return null;    	
     }
            
 }

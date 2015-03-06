@@ -1,7 +1,15 @@
 <apex:page standardController="Milestone__c" extensions="EditMilestonesControllerExtension" recordSetVar="milestones" id="thePage"> 
     <apex:form id="theForm"> 
         <apex:pageBlock id="thePageBlock" title="Edit Milestones">
-        <apex:outputLink value="/{!serviceParticipation}">Service Participation {!serviceParticipationName}</apex:outputLink>                
+        <apex:actionFunction name="clearMsg" action="{!clearMsg}" rerender="thePanel" />
+        
+        <apex:outputPanel id="thePanel">
+        	<apex:pageMessage id="doneSaving" rendered="{!saveComplete}" severity="confirm" summary="You have successfully edited Milestones. You can now click the Service Participation link and navigate back to the Case Record."/>
+        </apex:outputPanel>
+        
+        <br/>
+        <apex:outputLink value="/{!serviceParticipation}">Service Participation {!serviceParticipationName}</apex:outputLink>
+        <br/><br/>                
             <apex:pageBlockTable value="{!milestones}" var="milestone" id="thePageBlockTable">               
                 <apex:column >
                     <apex:outputField value="{!milestone.Name}"/> 
@@ -15,12 +23,18 @@
                     <apex:outputField value="{!milestone.DescriptionFormula__c}"/> 
                     <apex:facet name="header">Description</apex:facet>
                 </apex:column>               
-                <apex:column >
+                <apex:column onClick="clearMsg();return false;">
                     <apex:outputField value="{!milestone.Status__c}">
                     <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="prevBtn, nextBtn"/>
                     </apex:outputField> 
                     <apex:facet name="header">Status</apex:facet>
                 </apex:column> 
+                <apex:column onClick="clearMsg();return false;">
+                    <apex:outputField value="{!milestone.Date_Milestone_Met__c}">
+                    <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="prevBtn, nextBtn"/>
+                    </apex:outputField> 
+                    <apex:facet name="header">Date Met</apex:facet>
+                </apex:column>
                 <apex:column >
                     <apex:outputField value="{!milestone.Outcome__c}"/> 
                     <apex:facet name="header">Outcome</apex:facet>
@@ -31,7 +45,7 @@
                 </apex:column>                                         
             </apex:pageBlockTable> 
             <apex:pageBlockButtons >                
-                <apex:commandButton value="Save" action="{!save}" id="saveButton" />
+                <apex:commandButton value="Save" action="{!save}" id="saveButton"/>
                 <apex:commandButton value="Cancel" action="{!cancel}" id="cancelButton" />                
                 <apex:commandButton value="Previous" action="{!previous}" disabled="{!!hasPrevious}" title="Previous Page" id="prevBtn"/>
                 <apex:commandButton value="Next" action="{!next}" disabled="{!!hasNext}" title="Next Page" id="nextBtn"/>                

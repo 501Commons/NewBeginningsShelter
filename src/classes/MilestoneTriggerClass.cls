@@ -53,10 +53,10 @@ public without sharing class MilestoneTriggerClass {
     	List<Outcome__c> outcomes = [select id, Number_of_Milestones_Met__c 
     									 from Outcome__c where id in: outcomesToUpdate];
     	//now get all milestones for the outcomes
-    	List<Milestone__c> allMilestones = [select id, Status__c, Outcome__c, Template_Milestone__c, Count__c, Date_Milestone_Met__c 
+    	List<Milestone__c> allMilestones = [select id, Status__c, Outcome__c, Template_Milestone__c, Count__c, Date_Milestone_Generated__c 
     											from Milestone__c 
     											where Outcome__c in :outcomesToUpdate 
-    											order by Outcome__c, Template_Milestone__c, Date_Milestone_Met__c asc];
+    											order by Outcome__c, Template_Milestone__c, Date_Milestone_Generated__c asc];
 		
 		//list of outcomes with their actual milestone count, 
 		//we want to delete the ones that don't have any milestones left 
