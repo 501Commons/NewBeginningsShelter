@@ -3,6 +3,9 @@
 * Trigger to create and set the participant id based on the 1st case record
 */
 public without sharing class CaseRecordTriggerClass {	 
+	 public static final String NO_INCOME_LEVEL = 'No Income';
+	 public static final String UNKNOWN = 'Unknown';
+	 
 	 private static final Id recTypeIdChild = [select id from RecordType where Name='Child'].id;
 	 
 	 public static void MainEntry (List<Case_Record__c> newList, Map<Id, Case_Record__c> newMap,
@@ -13,16 +16,18 @@ public without sharing class CaseRecordTriggerClass {
           	   checkChildrenCaseRecordStatus(newMap, oldMap);
 
           	   for (Case_Record__c newcr : newMap.values()) {
-          	   		if (newcr.Monthly_Gross_Income_at_Intake__c <> oldMap.get(newcr.id).Monthly_Gross_Income_at_Intake__c) {
+          	   		if ((newcr.Monthly_Gross_Income_at_Intake__c <> oldMap.get(newcr.id).Monthly_Gross_Income_at_Intake__c) || 
+          	   			(newcr.Num_of_People_in_HH_at_Intake__c <> oldMap.get(newcr.id).Num_of_People_in_HH_at_Intake__c)) {
           	   			toUpdateCr.add(newcr);
           	   		}
           	   }
           	   updateMonthlyGrossIncomeAtIntake(toUpdateCr);          	      	
           	} else if (trigger.isInsert) {
   				 for (Case_Record__c newcr : newList) {
-  				 	if (newcr.Monthly_Gross_Income_at_Intake__c != null) {
+  				 	//if ((newcr.Monthly_Gross_Income_at_Intake__c != null) &&
+  				 	//    (newcr.Num_of_People_in_HH_at_Intake__c != null)) {
   				 		toUpdateCr.add(newcr);
-  				 	}		
+  				 	//}		
   				 }
   				 updateMonthlyGrossIncomeAtIntake(toUpdateCr);
           	}
@@ -31,12 +36,7 @@ public without sharing class CaseRecordTriggerClass {
      }
      
     private static void updateMonthlyGrossIncomeAtIntake(List<Case_Record__c> toUpdateCr){
-    	Map<Id, Id> crToHouseholdMap = new Map<Id, Id>();
-    	
-    	for (Case_Record__c cr : toUpdateCr) {
-			crToHouseholdMap.put(cr.id, cr.Household__c);
-    	}
-    	
+    	    	
     	List<Income_Level_Setting__c> levelList = [SELECT Id, Number_of_People__c, Low_End__c, High_End__c, Household_Category__c, Name 
     										FROM Income_Level_Setting__c ORDER BY Number_of_People__c];
     				
@@ -57,19 +57,20 @@ public without sharing class CaseRecordTriggerClass {
     		}
     	}
     	Double highestPeopleNo = levelList.get(levelList.size()-1).Number_of_People__c;
-    	
-    	
-    	// create a map for HouseHold
-    	Map<Id, npo02__Household__c> houseHoldMap = new Map<Id, npo02__Household__c>([SELECT Id,Number_of_Household_Members__c 
-    				FROM npo02__Household__c where Id in :crToHouseholdMap.values()]);
-    	
+    	    	
     	for (Case_Record__c cr : toUpdateCr) {
-    		double numberOfHouseHoldMembers = houseHoldMap.get(cr.Household__c).Number_of_Household_Members__c;
-    		if (cr.Monthly_Gross_Income_at_Intake__c == 0 || 
-    			cr.Monthly_Gross_Income_at_Intake__c == null) {
-    			cr.Income_Level__c = null;
+    		
+    		if (cr.Num_of_People_in_HH_at_Intake__c == null) {
+    			cr.Income_Level__c = UNKNOWN;
     			continue;
     		}
+    		
+    		double numberOfHouseHoldMembers = cr.Num_of_People_in_HH_at_Intake__c;
+    		if (cr.Monthly_Gross_Income_at_Intake__c == 0 || 
+    			cr.Monthly_Gross_Income_at_Intake__c == null) {
+    			cr.Income_Level__c = NO_INCOME_LEVEL;
+    			continue;
+    		}    		    		
     		
     		List<Income_Level_Setting__c> listIncomeLevel = null;
     		if (numberOfHouseHoldMembers > highestPeopleNo) {
@@ -91,7 +92,7 @@ public without sharing class CaseRecordTriggerClass {
     					}
     			}
     			if (!match) {
-    				cr.Income_Level__c = null;
+    				cr.Income_Level__c = NO_INCOME_LEVEL;
     			}
     		}
     		

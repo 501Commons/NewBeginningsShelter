@@ -43,7 +43,7 @@ private class TestCaseRecordIncomeLevelTriggerClass {
     	setup.cr.Monthly_Gross_Income_At_Intake__c = 1000;
     	update setup.cr;
     	
-	 	System.assertEquals(null, 
+	 	System.assertEquals(setup.noIncome, 
         		[select Income_Level__c from Case_Record__c where id =:setup.cr.Id].Income_Level__c);
     	
     }
@@ -53,7 +53,7 @@ private class TestCaseRecordIncomeLevelTriggerClass {
     	setup.cr.Monthly_Gross_Income_At_Intake__c = 0;
     	update setup.cr;
     	
-	 	System.assertEquals(null, 
+	 	System.assertEquals(setup.noIncome, 
         		[select Income_Level__c from Case_Record__c where id =:setup.cr.Id].Income_Level__c);
     	
     }
@@ -63,7 +63,7 @@ private class TestCaseRecordIncomeLevelTriggerClass {
     	setup.cr.Monthly_Gross_Income_At_Intake__c = null;
     	update setup.cr;
     	
-	 	System.assertEquals(null, 
+	 	System.assertEquals(setup.noIncome, 
         		[select Income_Level__c from Case_Record__c where id =:setup.cr.Id].Income_Level__c);
     	
     }
@@ -71,7 +71,7 @@ private class TestCaseRecordIncomeLevelTriggerClass {
      static testMethod void testLargePeopleNumberIncomeLevel() {
     	ClassSetup setup = new ClassSetup();
     	setup.cr.Monthly_Gross_Income_At_Intake__c = 8000;
-    	setup.cr.Household__c = setup.household6.id;
+    	setup.cr.Num_of_People_in_HH_at_Intake__c = 6;
     	update setup.cr;
     	
 	 	System.assertEquals(setup.aboveModerateCategory4, 
@@ -87,6 +87,7 @@ private class TestCaseRecordIncomeLevelTriggerClass {
     	String aboveModerateCategory = 'Above Moderate (>80% of Median)';
     	String aboveModerateCategory4 = 'Above Moderate 4 (>80% of Median)';
     	String moderate = 'Moderate (<80% of Median)';
+    	String noIncome = 'No Income';
     	ClassSetup() {
     		
     		Id parentRecTypeId = [select id from RecordType where name='Participant'].id;
@@ -103,13 +104,8 @@ private class TestCaseRecordIncomeLevelTriggerClass {
     		
     		
     		// insert household
-    		npo02__Household__c household = new npo02__Household__c(Name='Test Household',
-    											Number_of_Household_Members__c = 1);
+    		npo02__Household__c household = new npo02__Household__c(Name='Test Household');
     		insert household;
-    		
-    		household6 = new npo02__Household__c(Name='Test Household4',
-    											Number_of_Household_Members__c = 6);
-    		insert household6;
     		
     		//insert contact
     		Contact contact = new Contact(Lastname='Lastname', Firstname='Firstname', RecordTypeId=parentRecTypeId, npo02__Household__c=household.Id);
@@ -117,7 +113,8 @@ private class TestCaseRecordIncomeLevelTriggerClass {
     		
     		//insert case records
     		cr = new Case_Record__c(Name='Test Case Record 1', Household__c=household.id,
-    						Contact__c = contact.id, Monthly_Gross_Income_At_Intake__c = 4000);
+    						Contact__c = contact.id, Monthly_Gross_Income_At_Intake__c = 4000,
+    						Num_of_People_in_HH_at_Intake__c = 1);
     		insert cr;
     		           
     	}
