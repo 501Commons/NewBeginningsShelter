@@ -19,7 +19,7 @@ public without sharing class EditMilestonesControllerExtension {
             if(setCon == null) {
                 setCon = new ApexPages.StandardSetController(Database.getQueryLocator(
                     [SELECT id, Name, Status__c, Milestone_NameFormula__c, Service_Participation__c, Outcome__c,
-                    		DescriptionFormula__c, Contract_Name__c, Date_Milestone_Met__c 
+                    		DescriptionFormula__c, Contract_Name__c, Date_Milestone_Met_Writeable__c 
                     		FROM Milestone__c 
                     		where Service_Participation__c=:servPartId limit 200]));
                 setCon.setPageSize(PAGE_SIZE);    		

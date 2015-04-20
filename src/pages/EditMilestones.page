@@ -30,7 +30,7 @@
                     <apex:facet name="header">Status</apex:facet>
                 </apex:column> 
                 <apex:column onClick="clearMsg();return false;">
-                    <apex:outputField value="{!milestone.Date_Milestone_Met__c}">
+                    <apex:outputField value="{!milestone.Date_Milestone_Met_Writeable__c}">
                     <apex:inlineEditSupport event="ondblClick" showOnEdit="saveButton,cancelButton" hideOnEdit="prevBtn, nextBtn"/>
                     </apex:outputField> 
                     <apex:facet name="header">Date Met</apex:facet>

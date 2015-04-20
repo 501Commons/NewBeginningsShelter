@@ -22,7 +22,8 @@
 @isTest
 private class TestCaseRecordTriggerClass {
     
-    static testMethod void testExitingCaseRecords() {
+    //NM - Commented out 4.20.2015 as per LaurenSmith @NB no longer needed
+    /*static testMethod void testExitingCaseRecords() {
     	TestHarness2 th2 = new TestHarness2();
     	test.startTest();
     	//try to exit the parent case record
@@ -50,7 +51,7 @@ private class TestCaseRecordTriggerClass {
     	System.assertEquals('Exited', [select Status__c from Case_Record__c where id =: th2.crParent.Id].Status__c);
     	
     	test.stopTest();
-    }
+    }*/
     
     //set up the test environment
     private class TestHarness {    	

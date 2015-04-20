@@ -13,7 +13,7 @@ public without sharing class CaseRecordTriggerClass {
           if (trigger.isBefore) {    
           	List<Case_Record__c> toUpdateCr = new List<Case_Record__c>();
             if (trigger.isUpdate) {
-          	   checkChildrenCaseRecordStatus(newMap, oldMap);
+          	   //checkChildrenCaseRecordStatus(newMap, oldMap); -- NM/4.20.2015 No longer a requirement 
 
           	   for (Case_Record__c newcr : newMap.values()) {
           	   		if ((newcr.Monthly_Gross_Income_at_Intake__c <> oldMap.get(newcr.id).Monthly_Gross_Income_at_Intake__c) || 
@@ -98,11 +98,12 @@ public without sharing class CaseRecordTriggerClass {
     		
     	}	
     }
-         
+    
+    //NM - Commented out on 4/20/2015 as per LaurenSmith@NB no longer a requirement     
     /*
     * Check the status of children's case records before allowing the parent case record to exit
     */
-    private static void checkChildrenCaseRecordStatus(Map<Id, Case_Record__c> newMap, Map<Id, Case_Record__c> oldMap){    	
+   /* private static void checkChildrenCaseRecordStatus(Map<Id, Case_Record__c> newMap, Map<Id, Case_Record__c> oldMap){    	
     	Map<Id, Id> crTOHouseholdMap = new Map<Id, Id>();
     	    	
     	for (Case_Record__c newcr : newMap.values()) {
@@ -140,5 +141,5 @@ public without sharing class CaseRecordTriggerClass {
 	    		}
     		}
     	}
-    }
+    }*/
 }
