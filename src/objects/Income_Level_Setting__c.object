@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>This custom setting will be used to map Income and Household Size to Income Levels.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>High_End__c</fullName>
+        <description>High End of Income Bracket, this number will not be included. The income will be checked up to this number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>High End of Income Bracket, this number will not be included. The income will be checked up to this number.</inlineHelpText>
+        <label>High End</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Household_Category__c</fullName>
+        <description>This is the level for the Household and this value will be returned to populate the Income Level on the Case Record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the level for the Household and this value will be returned to populate the Income Level on the Case Record.</inlineHelpText>
+        <label>Household Category</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Low_End__c</fullName>
+        <description>Low End of Income Bracket. This number will be included.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Low End of Income Bracket. This number will be included.</inlineHelpText>
+        <label>Low End</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_People__c</fullName>
+        <description>The number of people in the household.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of people in the household.</inlineHelpText>
+        <label>Number of People</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Income Level Setting</label>
+</CustomObject>
