@@ -1,0 +1,7 @@
+<apex:page standardController="Case_Record__c">
+    <!-- This page will be used to override the standard New button for Case Record -->
+    <script>
+        alert('To create a new Case Record, you must be on the Participant’s Contact Record. \n\nClick on the Salesforce Help tab for more information on this topic.'); 
+        window.location.href = "{!URLFOR($Action.Case_Record__c.List,$ObjectType.Case_Record__c)}"; 
+    </script>  
+</apex:page>

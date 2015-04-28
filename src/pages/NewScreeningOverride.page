@@ -1,0 +1,8 @@
+<apex:page standardController="Screening__c">
+    <!-- This page will be used to override the standard New button for Screenings -->
+    <script>
+        alert('To start a new screening, you must be on the Contact record of the Caller you want to screen. If one does not exist,'+
+              ' you must convert the Helpline Call into a Contact.\n\nClick on the Salesforce Help tab for more information on this topic.'); 
+        window.location.href = "{!URLFOR($Action.Screening__c.List,$ObjectType.Screening__c)}"; 
+    </script>  
+</apex:page>
