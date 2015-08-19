@@ -1,7 +1,7 @@
 <apex:page standardController="ServiceParticipation__c">
     <!-- This page will be used to override the standard New button for ServiceParticipation__c -->
-    <script>
-        alert('To create a new Service Participation for a Participant, you must first go to their Case Record and then open the Enrollment. \n\nClick on the Salesforce Help tab for more information on this topic.'); 
-        window.location.href = "{!URLFOR($Action.ServiceParticipation__c.List,$ObjectType.ServiceParticipation__c)}"; 
+    <script>       
+         alert('To create a new Service Participation for a Participant, you must first go to their Case Record and then open the Enrollment. \n\nClick on the Salesforce Help tab for more information on this topic.'); 
+         window.location.href = "{!URLFOR($Action.ServiceParticipation__c.List,$ObjectType.ServiceParticipation__c)}";         
     </script>  
 </apex:page>
